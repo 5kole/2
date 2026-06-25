@@ -143,15 +143,21 @@ if (form) {
       ts:      new Date().toISOString(),
     };
 
-    // Replace with your Formspree endpoint: https://formspree.io/f/YOUR_FORM_ID
-    fetch('https://formspree.io/f/YOUR_FORM_ID', {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body:    JSON.stringify(payload),
-    })
-    .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
-    .then(onFormSuccess)
-    .catch(onFormSuccess); // show success anyway so no lead is lost
+    var lines = [
+      'Name: '    + payload.name,
+      'Phone: '   + payload.phone,
+      'Email: '   + (payload.email || 'not provided'),
+      'Service: ' + payload.service,
+      'City: '    + (payload.city || 'not provided'),
+      'Message: ' + (payload.message || 'none'),
+      '',
+      'Source: '  + payload.source,
+      'Time: '    + payload.ts,
+    ];
+    var subject = encodeURIComponent('New Lead: ' + payload.service + ' — ' + payload.name);
+    var body    = encodeURIComponent(lines.join('\n'));
+    window.location.href = 'mailto:colealancooper@gmail.com?subject=' + subject + '&body=' + body;
+    onFormSuccess();
 
     function onFormSuccess() {
       // ── CONVERSION 2 fires here ──────────────────────────────────────
