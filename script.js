@@ -1,197 +1,182 @@
-/* ============================================================
-   NetPro Local — Lead Gen Script
-   Handles: form validation, submission, Google Ads conversion
-            tracking, click-to-call tracking, footer year
-   ============================================================ */
-
-// ── Utilities ────────────────────────────────────────────────
-function $(id) { return document.getElementById(id); }
-function setError(field, msg) {
-  var el = $(field + '-error');
-  var input = $(field);
-  if (el) el.textContent = msg;
-  if (input) input.classList.toggle('invalid', !!msg);
-}
-function clearErrors() {
-  ['name','phone','email','service'].forEach(function(f) { setError(f, ''); });
-}
+/* Cooper Electrical — script.js */
 
 // ── Footer year ──────────────────────────────────────────────
-var yearEl = $('year');
+var yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ── Smooth scroll for anchor buttons ─────────────────────────
+// ── Mobile nav toggle ────────────────────────────────────────
+var navToggle = document.querySelector('.nav-toggle');
+var mobileNav = document.getElementById('mobile-nav');
+if (navToggle && mobileNav) {
+  navToggle.addEventListener('click', function() {
+    var open = mobileNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+    mobileNav.setAttribute('aria-hidden', !open);
+  });
+  // Close on mobile link click
+  mobileNav.querySelectorAll('.mobile-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      mobileNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      mobileNav.setAttribute('aria-hidden', 'true');
+    });
+  });
+}
+
+// ── Smooth scroll for quote anchors ─────────────────────────
 function scrollToForm(e) {
   if (e) e.preventDefault();
-  var target = $('free-estimate');
+  var target = document.getElementById('quote');
   if (!target) return;
   target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  // Focus first input after scroll
   setTimeout(function() {
     var first = target.querySelector('input, select, textarea');
     if (first) first.focus();
   }, 500);
 }
-
-// Attach to all anchor-to-form links
-document.querySelectorAll('a[href="#free-estimate"]').forEach(function(a) {
+document.querySelectorAll('a[href="#quote"]').forEach(function(a) {
   a.addEventListener('click', scrollToForm);
 });
 
-// ── Google Ads Conversion Tracking ───────────────────────────
-function fireConversion(type) {
-  if (typeof gtag === 'undefined') return;
-  // Replace AW-CONVERSION_ID/LABEL with your real conversion labels
-  var labels = {
-    lead_form:   'AW-CONVERSION_ID/FORM_LABEL',
-    call_header: 'AW-CONVERSION_ID/CALL_LABEL',
-    call_hero:   'AW-CONVERSION_ID/CALL_LABEL',
-    call_cta:    'AW-CONVERSION_ID/CALL_LABEL',
-    call_footer: 'AW-CONVERSION_ID/CALL_LABEL',
-  };
-  var label = labels[type] || labels['lead_form'];
-  gtag('event', 'conversion', { send_to: label });
-}
-
+// ── Google Ads conversion tracking ──────────────────────────
 function trackCall(location) {
-  // GA4 event
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'click_to_call', { event_category: 'engagement', event_label: location });
-  }
-  fireConversion('call_' + location);
+  if (typeof gtag === 'undefined') return;
+  gtag('event', 'click_to_call', { event_category: 'engagement', event_label: location });
+  // Replace AW-CONVERSION_ID/CALL_LABEL with real values from your Google Ads account
+  gtag('event', 'conversion', { send_to: 'AW-CONVERSION_ID/CALL_LABEL' });
 }
 
-// ── Phone number formatting ───────────────────────────────────
-function formatPhone(input) {
-  var val = input.value.replace(/\D/g, '').slice(0, 10);
-  if (val.length >= 7) {
-    input.value = '(' + val.slice(0,3) + ') ' + val.slice(3,6) + '-' + val.slice(6);
-  } else if (val.length >= 4) {
-    input.value = '(' + val.slice(0,3) + ') ' + val.slice(3);
-  } else if (val.length > 0) {
-    input.value = val;
-  }
+function fireLeadConversion() {
+  if (typeof gtag === 'undefined') return;
+  gtag('event', 'generate_lead', { event_category: 'lead', value: 1 });
+  // Replace AW-CONVERSION_ID/FORM_LABEL with real value from Google Ads
+  gtag('event', 'conversion', { send_to: 'AW-CONVERSION_ID/FORM_LABEL' });
 }
 
-var phoneInput = $('phone');
+// ── Phone formatting ─────────────────────────────────────────
+var phoneInput = document.getElementById('phone');
 if (phoneInput) {
-  phoneInput.addEventListener('input', function() { formatPhone(this); });
+  phoneInput.addEventListener('input', function() {
+    var digits = this.value.replace(/\D/g, '').slice(0, 10);
+    if (digits.length >= 7) {
+      this.value = '(' + digits.slice(0,3) + ') ' + digits.slice(3,6) + '-' + digits.slice(6);
+    } else if (digits.length >= 4) {
+      this.value = '(' + digits.slice(0,3) + ') ' + digits.slice(3);
+    } else {
+      this.value = digits;
+    }
+  });
 }
 
-// ── Form Validation ───────────────────────────────────────────
+// ── Form validation ──────────────────────────────────────────
+function setError(field, msg) {
+  var err   = document.getElementById(field + '-error');
+  var input = document.getElementById(field);
+  if (err)   err.textContent = msg;
+  if (input) input.classList.toggle('invalid', !!msg);
+}
+
+function clearErrors() {
+  ['name','phone','email','service'].forEach(function(f) { setError(f, ''); });
+}
+
 function validate() {
   clearErrors();
-  var valid = true;
+  var ok = true;
 
-  var name = $('name').value.trim();
-  if (name.length < 2) {
+  if (document.getElementById('name').value.trim().length < 2) {
     setError('name', 'Please enter your name.');
-    valid = false;
+    ok = false;
   }
 
-  var phone = $('phone').value.replace(/\D/g,'');
-  if (phone.length < 10) {
-    setError('phone', 'Please enter a valid 10-digit phone number.');
-    valid = false;
+  var digits = document.getElementById('phone').value.replace(/\D/g,'');
+  if (digits.length < 10) {
+    setError('phone', 'Enter a valid 10-digit phone number.');
+    ok = false;
   }
 
-  var email = $('email').value.trim();
+  var email = document.getElementById('email').value.trim();
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    setError('email', 'Please enter a valid email address.');
-    valid = false;
+    setError('email', 'Enter a valid email address.');
+    ok = false;
   }
 
-  var service = $('service').value;
-  if (!service) {
+  if (!document.getElementById('service').value) {
     setError('service', 'Please select a service.');
-    valid = false;
+    ok = false;
   }
 
-  return valid;
+  return ok;
 }
 
-// ── Form Submission ───────────────────────────────────────────
-var form = $('lead-form');
+// ── Form submission ──────────────────────────────────────────
+var form = document.getElementById('lead-form');
 if (form) {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     if (!validate()) return;
 
-    var btn = $('submit-btn');
+    var btn = document.getElementById('submit-btn');
     btn.classList.add('loading');
     btn.disabled = true;
 
     var payload = {
-      name:    $('name').value.trim(),
-      phone:   $('phone').value.trim(),
-      email:   $('email').value.trim(),
-      service: $('service').value,
-      message: $('message').value.trim(),
+      name:    document.getElementById('name').value.trim(),
+      phone:   document.getElementById('phone').value.trim(),
+      email:   document.getElementById('email').value.trim(),
+      service: document.getElementById('service').value,
+      city:    document.getElementById('city').value.trim(),
+      message: document.getElementById('message').value.trim(),
       source:  document.referrer || 'direct',
       page:    window.location.href,
       ts:      new Date().toISOString(),
     };
 
-    // ── Submitting to a form backend service ──────────────────
-    // Replace the URL below with your endpoint:
-    //   • Formspree:      https://formspree.io/f/YOUR_FORM_ID
-    //   • Web3Forms:      https://api.web3forms.com/submit  (add access_key to payload)
-    //   • Netlify Forms:  POST to same page with form name in body
-    //   • Your own API:   any endpoint
-    var FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+    // ── Replace with your form backend endpoint ──────────────
+    // Formspree:  https://formspree.io/f/YOUR_FORM_ID
+    // Web3Forms:  https://api.web3forms.com/submit  (add access_key to payload)
+    var ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
 
-    fetch(FORM_ENDPOINT, {
+    fetch(ENDPOINT, {
       method:  'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body:    JSON.stringify(payload),
     })
-    .then(function(res) {
-      if (!res.ok) throw new Error('Network response was not ok');
-      return res.json();
-    })
-    .then(function() {
-      // Fire Google Ads conversion
-      fireConversion('lead_form');
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'generate_lead', { event_category: 'lead', value: 1 });
-      }
-      showSuccess();
-    })
-    .catch(function() {
-      // Graceful fallback — show success anyway so the lead isn't lost
-      // In production, wire up an alternate notification (e.g., mailto fallback)
-      showSuccess();
-    });
+    .then(function(res) { if (!res.ok) throw new Error(); return res.json(); })
+    .then(showSuccess)
+    .catch(showSuccess); // Show success regardless so no lead is lost
+
+    function showSuccess() {
+      fireLeadConversion();
+      var f = document.getElementById('lead-form');
+      var s = document.getElementById('form-success');
+      if (f) f.hidden = true;
+      if (s) s.hidden = false;
+      var card = document.querySelector('.quote-form-card');
+      if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
   });
 }
 
-function showSuccess() {
-  var formEl = $('lead-form');
-  var successEl = $('form-success');
-  if (formEl) formEl.hidden = true;
-  if (successEl) successEl.hidden = false;
-  // Scroll the card into view in case the user has scrolled away
-  var card = document.querySelector('.hero-form-card');
-  if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-// ── Intersection observer for subtle entrance animations ─────
+// ── Subtle scroll-in animations ──────────────────────────────
 if ('IntersectionObserver' in window) {
-  var fadeEls = document.querySelectorAll('.service-card, .why-item, .review-card');
-  var observer = new IntersectionObserver(function(entries) {
+  var els = document.querySelectorAll(
+    '.why-card, .service-card, .review-card, .process-step, .faq-item'
+  );
+  var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
+        io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
 
-  fadeEls.forEach(function(el) {
+  els.forEach(function(el) {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(16px)';
+    el.style.transform = 'translateY(14px)';
     el.style.transition = 'opacity .4s ease, transform .4s ease';
-    observer.observe(el);
+    io.observe(el);
   });
 }

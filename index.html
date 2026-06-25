@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Professional network installation & structured cabling for homes and businesses. Licensed local contractor. Free estimate — call today!" />
+  <meta name="description" content="Cooper Electrical — Fast, reliable home network wiring & WiFi in Harrisburg, NC. Cat6 drops, WiFi dead zones, home office setups. Same-week scheduling. Call Cole at (704) 609-0965." />
+  <meta name="keywords" content="home network wiring Harrisburg NC, Cat6 ethernet installation Charlotte, WiFi dead zone fix, network contractor Concord NC, Cooper Electrical" />
 
-  <!-- Google tag (gtag.js) — replace GA_MEASUREMENT_ID and AW-CONVERSION_ID -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cooper Electrical | Home Network Wiring & WiFi — Harrisburg NC" />
+  <meta property="og:description" content="Same-week scheduling · Flat-rate pricing · Licensed & insured. Serving Harrisburg, Concord, Charlotte & surrounding areas." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google tag — replace with real IDs -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -15,88 +21,440 @@
     gtag('config', 'AW-CONVERSION_ID');
   </script>
 
-  <title>NetPro Local | Network Installation & Cabling — Free Estimate</title>
+  <title>Cooper Electrical | Home Network Wiring & WiFi — Harrisburg, NC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ───────────────────────── STICKY HEADER ───────────────────────── -->
-  <header class="site-header">
+  <!-- ═══════════════════ STICKY HEADER ═══════════════════ -->
+  <header class="site-header" id="top">
     <div class="container header-inner">
-      <a href="#" class="logo" aria-label="NetPro Local home">
-        <svg class="logo-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
-          <circle cx="18" cy="18" r="17" fill="#0057FF" />
-          <circle cx="18" cy="10" r="3.5" fill="#fff" />
-          <circle cx="8"  cy="26" r="3.5" fill="#fff" />
-          <circle cx="28" cy="26" r="3.5" fill="#fff" />
-          <line x1="18" y1="13" x2="8"  y2="23" stroke="#fff" stroke-width="2"/>
-          <line x1="18" y1="13" x2="28" y2="23" stroke="#fff" stroke-width="2"/>
-          <line x1="8"  y1="26" x2="28" y2="26" stroke="#fff" stroke-width="2"/>
-        </svg>
-        <span class="logo-text">NetPro <strong>Local</strong></span>
+
+      <a href="#" class="logo" aria-label="Cooper Electrical home">
+        <div class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40">
+            <rect width="40" height="40" rx="8" fill="#F97316"/>
+            <path d="M20 7l2.5 8H30l-6.5 4.7 2.5 8L20 23l-6 4.7 2.5-8L10 15h7.5z" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">Cooper Electrical</span>
+          <span class="logo-tag">Harrisburg, NC</span>
+        </div>
       </a>
 
-      <a href="tel:+15555550100" class="btn btn-call header-cta" onclick="trackCall('header')">
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#process">How It Works</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a href="tel:+17046090965" class="btn btn-call header-cta" onclick="trackCall('header')">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-        (555) 555-0100
+        (704) 609-0965
       </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+
+    <!-- Mobile nav -->
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#process" class="mobile-link">How It Works</a>
+      <a href="#reviews" class="mobile-link">Reviews</a>
+      <a href="#faq" class="mobile-link">FAQ</a>
+      <a href="tel:+17046090965" class="btn btn-call mobile-call" onclick="trackCall('mobile-nav')">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Call (704) 609-0965
+      </a>
+    </nav>
   </header>
 
-  <!-- ───────────────────────── HERO ───────────────────────── -->
+  <!-- ═══════════════════ HERO ═══════════════════ -->
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="container hero-grid">
 
       <div class="hero-copy">
-        <div class="badge">&#10003; Licensed &amp; Insured · Serving [Your City] &amp; Surrounding Areas</div>
-        <h1>Professional Network Installation &amp; Cabling — Done Right, Done Fast</h1>
-        <p class="hero-sub">Structured cabling, WiFi, VoIP, camera systems &amp; more. Local crews, same-week scheduling, flat-rate pricing. Get your free estimate in minutes.</p>
+        <div class="hero-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          Serving Harrisburg, Concord &amp; greater Charlotte
+        </div>
 
-        <ul class="trust-list" aria-label="Key benefits">
+        <h1>Fast, Reliable<br><span class="text-accent">Home Network Wiring</span><br>&amp; WiFi</h1>
+
+        <p class="hero-sub">
+          No dead zones. No call centers. Cole comes out personally, gets it done right — usually the same week you call.
+        </p>
+
+        <div class="hero-proof">
+          <div class="proof-pill">
+            <span class="stars-sm">★★★★★</span>
+            <strong>5.0 Google Rating</strong>
+          </div>
+          <div class="proof-pill">
+            <strong>300+</strong> Homes Wired
+          </div>
+          <div class="proof-pill">
+            Licensed &amp; Insured
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="tel:+17046090965" class="btn btn-call btn-lg" onclick="trackCall('hero')">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            Call Cole Now
+          </a>
+          <a href="#quote" class="btn btn-ghost btn-lg" onclick="scrollToForm(event)">Get a Free Quote</a>
+        </div>
+        <p class="hero-note">Typical job $150–$300 · Free on-site estimates · One-day completion</p>
+      </div>
+
+      <!-- Floating stat cards -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-card vc-top">
+          <div class="vc-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          </div>
+          <div>
+            <strong>Same-week scheduling</strong>
+            <span>Most jobs done within 2–3 days</span>
+          </div>
+        </div>
+
+        <div class="hero-image-placeholder">
+          <svg viewBox="0 0 320 240" aria-label="Cooper Electrical technician">
+            <rect width="320" height="240" rx="16" fill="#1e293b"/>
+            <!-- Van silhouette -->
+            <rect x="40" y="140" width="180" height="70" rx="8" fill="#334155"/>
+            <rect x="50" y="110" width="120" height="50" rx="6" fill="#334155"/>
+            <circle cx="80"  cy="212" r="18" fill="#0f172a" stroke="#475569" stroke-width="3"/>
+            <circle cx="180" cy="212" r="18" fill="#0f172a" stroke="#475569" stroke-width="3"/>
+            <rect x="145" y="125" width="70" height="35" rx="4" fill="#1e293b"/>
+            <!-- Windows -->
+            <rect x="58" y="118" width="40" height="28" rx="3" fill="#3b82f6" opacity=".6"/>
+            <rect x="104" y="118" width="40" height="28" rx="3" fill="#3b82f6" opacity=".6"/>
+            <!-- Logo on van -->
+            <text x="90" y="180" font-family="sans-serif" font-weight="700" font-size="11" fill="#f97316" text-anchor="middle">Cooper Electrical</text>
+            <!-- Person silhouette -->
+            <circle cx="260" cy="130" r="18" fill="#475569"/>
+            <rect  x="244" y="150" width="32" height="50" rx="6" fill="#334155"/>
+            <!-- Tools / cat6 -->
+            <line x1="255" y1="180" x2="255" y2="210" stroke="#f97316" stroke-width="3"/>
+            <line x1="255" y1="180" x2="275" y2="185" stroke="#64748b" stroke-width="2"/>
+          </svg>
+        </div>
+
+        <div class="visual-card vc-bottom">
+          <div class="vc-icon vc-icon-green">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <strong>Flat-rate pricing</strong>
+            <span>No hidden fees, ever</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════ WHY COOPER ═══════════════════ -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">Why Cooper Electrical</div>
+        <h2 class="section-title">The Local Difference</h2>
+        <p class="section-sub">You're not getting a call center — you're getting Cole, the owner, on the phone and in your home.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32"><path d="M16 3l2.5 8H27l-7 5 2.5 8-7-5-7 5 2.5-8-7-5h8.5z" fill="currentColor"/></svg>
+          </div>
+          <h3>5.0★ Google Rating</h3>
+          <p>Every review is real. Cole's reputation rides on every job, which is why every job gets done right.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon why-icon-blue">
+            <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 9v7l4 4" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Same-Week Scheduling</h3>
+          <p>Most appointments happen within 2–3 days. Emergency slots often available sooner.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon why-icon-green">
+            <svg viewBox="0 0 32 32"><path d="M16 3l10 4v8c0 7-4.5 12-10 15C10.5 27 6 22 6 15V7l10-4z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M11 16l3 3 7-7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Licensed &amp; Insured</h3>
+          <p>Fully licensed and carrying liability coverage so you're protected the moment we walk in.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon why-icon-purple">
+            <svg viewBox="0 0 32 32"><rect x="6" y="10" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M11 10V8a5 5 0 0110 0v2" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="16" cy="17" r="2" fill="currentColor"/></svg>
+          </div>
+          <h3>Flat-Rate, No Surprises</h3>
+          <p>You'll get an upfront price before any work starts. What we quote is what you pay.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon why-icon-orange">
+            <svg viewBox="0 0 32 32"><path d="M16 4c6.6 0 12 5.4 12 12s-5.4 12-12 12S4 22.6 4 16 9.4 4 16 4z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M9 16h14M16 9v14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>One-Day Completion</h3>
+          <p>Most home network projects wrap up in a single visit. In and out, no multi-day disruption.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon why-icon-teal">
+            <svg viewBox="0 0 32 32"><circle cx="10" cy="10" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="22" cy="10" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="24" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/><line x1="13.5" y1="13" x2="13" y2="21" stroke="currentColor" stroke-width="2"/><line x1="18.5" y1="13" x2="19" y2="21" stroke="currentColor" stroke-width="2"/><line x1="14" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>Talk Directly to Cole</h3>
+          <p>No dispatch, no call center. When you call or text, the owner picks up — before and after the job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SERVICES ═══════════════════ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">Services</div>
+        <h2 class="section-title">What We Install &amp; Fix</h2>
+        <p class="section-sub">Home network solutions for every room, every setup, every budget.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card sc-featured">
+          <div class="sc-header">
+            <div class="sc-icon">
+              <svg viewBox="0 0 48 48"><rect x="6" y="20" width="36" height="6" rx="2" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/><line x1="12" y1="26" x2="12" y2="40" stroke="#3b82f6" stroke-width="2.5"/><line x1="24" y1="26" x2="24" y2="40" stroke="#3b82f6" stroke-width="2.5"/><line x1="36" y1="26" x2="36" y2="40" stroke="#3b82f6" stroke-width="2.5"/><circle cx="12" cy="41" r="3.5" fill="#3b82f6"/><circle cx="24" cy="41" r="3.5" fill="#3b82f6"/><circle cx="36" cy="41" r="3.5" fill="#3b82f6"/><rect x="18" y="10" width="12" height="10" rx="2" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/></svg>
+            </div>
+            <div class="sc-badge">Most Popular</div>
+          </div>
+          <h3>Cat6 Ethernet Wiring</h3>
+          <p>Clean, in-wall wiring runs from your router to any room in the house. Say goodbye to powerline adapters and long cable runs across floors.</p>
+          <div class="sc-price">From <strong>$150–$300</strong> per room</div>
+          <a href="#quote" class="btn btn-primary sc-cta" onclick="scrollToForm(event)">Get a Quote</a>
+        </div>
+
+        <div class="service-card">
+          <div class="sc-icon">
+            <svg viewBox="0 0 48 48"><path d="M24 32c-5.5 0-10-4.5-10-10S18.5 12 24 12s10 4.5 10 10-4.5 10-10 10z" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/><path d="M15 16a13 13 0 0 1 18 0M11 12a19 19 0 0 1 26 0" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="22" r="3" fill="#f59e0b"/><line x1="24" y1="25" x2="24" y2="40" stroke="#f59e0b" stroke-width="2.5"/></svg>
+          </div>
+          <h3>WiFi Dead Zone Elimination</h3>
+          <p>Wired access points placed strategically throughout your home for rock-solid, full-coverage WiFi — no more buffering in the bedroom or backyard.</p>
+          <a href="#quote" class="btn btn-outline-dark sc-cta" onclick="scrollToForm(event)">Get a Quote</a>
+        </div>
+
+        <div class="service-card">
+          <div class="sc-icon">
+            <svg viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="22" rx="3" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/><rect x="14" y="20" width="20" height="10" rx="1" fill="#fbcfe8" stroke="#ec4899" stroke-width="1.5"/><line x1="24" y1="36" x2="24" y2="42" stroke="#ec4899" stroke-width="2.5"/><line x1="16" y1="42" x2="32" y2="42" stroke="#ec4899" stroke-width="2"/></svg>
+          </div>
+          <h3>Home Office Setup</h3>
+          <p>Dedicated hardwired connection for your desk — faster, more stable video calls and zero WiFi drops during important meetings.</p>
+          <a href="#quote" class="btn btn-outline-dark sc-cta" onclick="scrollToForm(event)">Get a Quote</a>
+        </div>
+
+        <div class="service-card">
+          <div class="sc-icon">
+            <svg viewBox="0 0 48 48"><rect x="14" y="10" width="20" height="16" rx="2" fill="#d1fae5" stroke="#10b981" stroke-width="2"/><circle cx="24" cy="18" r="4" fill="#10b981"/><path d="M10 44c0-7.7 6.3-14 14-14s14 6.3 14 14" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Security Camera Wiring</h3>
+          <p>PoE camera cabling for any brand of IP camera system. Clean in-wall runs, no exposed cables, and proper NVR hookup.</p>
+          <a href="#quote" class="btn btn-outline-dark sc-cta" onclick="scrollToForm(event)">Get a Quote</a>
+        </div>
+
+        <div class="service-card">
+          <div class="sc-icon">
+            <svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="3" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/><rect x="14" y="14" width="8" height="6" rx="1" fill="#8b5cf6"/><rect x="26" y="14" width="8" height="6" rx="1" fill="#8b5cf6"/><rect x="14" y="26" width="8" height="6" rx="1" fill="#8b5cf6"/><rect x="26" y="26" width="8" height="6" rx="1" fill="#8b5cf6"/></svg>
+          </div>
+          <h3>Whole-Home Network</h3>
+          <p>Full infrastructure for new builds or major renovations — panel, patch panel, all drops, and documentation. Built to last.</p>
+          <a href="#quote" class="btn btn-outline-dark sc-cta" onclick="scrollToForm(event)">Get a Quote</a>
+        </div>
+
+        <div class="service-card">
+          <div class="sc-icon">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="14" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><path d="M24 16v9l5 5" stroke="#f97316" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M14 8l-4-4M34 8l4-4" stroke="#f97316" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Troubleshooting &amp; Upgrades</h3>
+          <p>Slow speeds, dead ports, or a messy wiring closet? Cole will diagnose and fix existing infrastructure fast.</p>
+          <a href="#quote" class="btn btn-outline-dark sc-cta" onclick="scrollToForm(event)">Get a Quote</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PROCESS ═══════════════════ -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">3 Simple Steps to Wired</h2>
+        <p class="section-sub">From first call to finished install — usually in under a week.</p>
+      </div>
+
+      <div class="process-steps">
+
+        <div class="process-step">
+          <div class="step-number" aria-hidden="true">1</div>
+          <div class="step-body">
+            <h3>Call or Submit a Quote</h3>
+            <p>Reach Cole directly at <a href="tel:+17046090965">(704) 609-0965</a> or fill out the form below. Describe what you need — even a rough idea is enough to get started.</p>
+          </div>
+        </div>
+
+        <div class="process-connector" aria-hidden="true"></div>
+
+        <div class="process-step">
+          <div class="step-number" aria-hidden="true">2</div>
+          <div class="step-body">
+            <h3>Free On-Site Estimate</h3>
+            <p>Cole visits your home, walks through the project, and gives you a flat-rate quote before any work begins. No obligation, no pressure.</p>
+          </div>
+        </div>
+
+        <div class="process-connector" aria-hidden="true"></div>
+
+        <div class="process-step">
+          <div class="step-number" aria-hidden="true">3</div>
+          <div class="step-body">
+            <h3>Done in One Day</h3>
+            <p>Most installs are completed the same day as the scheduled appointment. You'll leave with a clean, tested, labeled network — and Cole's number if anything ever comes up.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="process-cta">
+        <a href="tel:+17046090965" class="btn btn-call btn-lg" onclick="trackCall('process')">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Call Cole — (704) 609-0965
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ REVIEWS ═══════════════════ -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">Customer Reviews</div>
+        <h2 class="section-title">5.0★ on Google</h2>
+        <p class="section-sub">Real homeowners in Harrisburg, Concord &amp; Charlotte.</p>
+      </div>
+
+      <div class="reviews-grid">
+
+        <blockquote class="review-card">
+          <div class="review-top">
+            <div class="reviewer-avatar" aria-hidden="true">M</div>
+            <div>
+              <strong class="reviewer-name">Michael D.</strong>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            </div>
+            <div class="google-badge" aria-label="Google review" title="Google Review">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+          </div>
+          <p>"Cole wired my entire home office — dedicated Cat6 drop, clean wall plate, the whole thing. Scheduled within 3 days, done in a few hours. Video calls have been rock solid ever since. Worth every penny."</p>
+          <footer class="review-meta">Harrisburg, NC · Home Office Setup</footer>
+        </blockquote>
+
+        <blockquote class="review-card">
+          <div class="review-top">
+            <div class="reviewer-avatar av-green" aria-hidden="true">J</div>
+            <div>
+              <strong class="reviewer-name">Jennifer R.</strong>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            </div>
+            <div class="google-badge" aria-label="Google review" title="Google Review">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+          </div>
+          <p>"We had terrible WiFi dead zones on the second floor and in the garage. Cole installed wired access points and now we have full bars everywhere. He explained everything clearly, was super professional, and cleaned up completely."</p>
+          <footer class="review-meta">Concord, NC · WiFi Coverage</footer>
+        </blockquote>
+
+        <blockquote class="review-card">
+          <div class="review-top">
+            <div class="reviewer-avatar av-purple" aria-hidden="true">T</div>
+            <div>
+              <strong class="reviewer-name">Thomas W.</strong>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            </div>
+            <div class="google-badge" aria-label="Google review" title="Google Review">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+          </div>
+          <p>"Had Cole run wiring for 4 PoE security cameras — clean in-wall runs, no exposed cable, and he set up the remote viewing on my phone before leaving. Called on Tuesday, installed by Friday. Fantastic job."</p>
+          <footer class="review-meta">Harrisburg, NC · Security Camera Wiring</footer>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ QUOTE FORM ═══════════════════ -->
+  <section class="quote-section" id="quote">
+    <div class="container quote-grid">
+
+      <div class="quote-copy">
+        <div class="section-label">Free Estimate</div>
+        <h2 class="section-title">Get Your Free Quote</h2>
+        <p>Tell Cole what you need and he'll get back to you within a few hours — usually the same business day.</p>
+
+        <ul class="quote-benefits">
           <li>
             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 5.3l-8.4 8.4-4-4L5.7 8.3l2.6 2.6 7-7z" fill="currentColor"/></svg>
-            No-surprise flat-rate quotes
+            No-obligation estimate
           </li>
           <li>
             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 5.3l-8.4 8.4-4-4L5.7 8.3l2.6 2.6 7-7z" fill="currentColor"/></svg>
-            Same-week &amp; emergency scheduling
+            Response within a few hours
           </li>
           <li>
             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 5.3l-8.4 8.4-4-4L5.7 8.3l2.6 2.6 7-7z" fill="currentColor"/></svg>
-            Residential &amp; commercial
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 5.3l-8.4 8.4-4-4L5.7 8.3l2.6 2.6 7-7z" fill="currentColor"/></svg>
-            1-year workmanship warranty
+            You're talking directly to Cole
           </li>
         </ul>
 
-        <a href="tel:+15555550100" class="btn btn-call hero-phone" onclick="trackCall('hero')">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-          Call (555) 555-0100
-        </a>
-        <p class="availability">Mon–Sat 7 AM – 7 PM · Emergency line 24/7</p>
+        <div class="quote-contact-alt">
+          <p>Prefer to call?</p>
+          <a href="tel:+17046090965" class="btn btn-call" onclick="trackCall('quote-section')">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            (704) 609-0965
+          </a>
+        </div>
       </div>
 
-      <!-- Lead Capture Form -->
-      <div class="hero-form-card" id="free-estimate">
-        <h2>Get Your Free Estimate</h2>
-        <p class="form-sub">Response within 1 business hour</p>
-
+      <div class="quote-form-card">
         <form id="lead-form" novalidate>
-          <div class="field-group">
-            <label for="name">Full Name <span aria-hidden="true">*</span></label>
-            <input type="text" id="name" name="name" autocomplete="name" placeholder="Jane Smith" required />
-            <span class="field-error" id="name-error" role="alert"></span>
-          </div>
-
-          <div class="field-group">
-            <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-0100" required />
-            <span class="field-error" id="phone-error" role="alert"></span>
+          <div class="field-row">
+            <div class="field-group">
+              <label for="name">Your Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Jane Smith" required />
+              <span class="field-error" id="name-error" role="alert"></span>
+            </div>
+            <div class="field-group">
+              <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(704) 555-0100" required />
+              <span class="field-error" id="phone-error" role="alert"></span>
+            </div>
           </div>
 
           <div class="field-group">
@@ -109,270 +467,172 @@
             <label for="service">Service Needed <span aria-hidden="true">*</span></label>
             <select id="service" name="service" required>
               <option value="" disabled selected>Select a service…</option>
-              <option value="structured-cabling">Structured Cabling / Cat6</option>
-              <option value="wifi">WiFi Network Setup</option>
-              <option value="voip">VoIP Phone System</option>
-              <option value="cameras">Security Cameras</option>
-              <option value="server-room">Server Room / Rack Setup</option>
-              <option value="troubleshoot">Network Troubleshooting</option>
-              <option value="other">Other / Not Sure</option>
+              <option value="cat6-ethernet">Cat6 Ethernet Wiring</option>
+              <option value="wifi-coverage">WiFi Dead Zone Fix</option>
+              <option value="home-office">Home Office Setup</option>
+              <option value="security-cameras">Security Camera Wiring</option>
+              <option value="whole-home">Whole-Home Network</option>
+              <option value="troubleshoot">Troubleshooting / Upgrade</option>
+              <option value="other">Not Sure — Need Advice</option>
             </select>
             <span class="field-error" id="service-error" role="alert"></span>
           </div>
 
           <div class="field-group">
-            <label for="message">Tell Us More (optional)</label>
-            <textarea id="message" name="message" rows="3" placeholder="e.g. New construction, 2,500 sq ft office, need 20 drops…"></textarea>
+            <label for="city">City / Neighborhood</label>
+            <input type="text" id="city" name="city" placeholder="Harrisburg, Concord, Kannapolis…" />
+          </div>
+
+          <div class="field-group">
+            <label for="message">Tell Cole More (optional)</label>
+            <textarea id="message" name="message" rows="3" placeholder="e.g. 2-story house, need ethernet in 3 rooms and WiFi dead zone in master bedroom…"></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
-            <span class="btn-label">Send My Free Estimate Request</span>
+            <span class="btn-label">Send My Quote Request</span>
             <span class="btn-spinner" aria-hidden="true"></span>
           </button>
 
           <p class="form-privacy">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1l5 2v4c0 3-2.5 5.7-5 7C5.5 12.7 3 10 3 7V3l5-2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-            Your info is private. No spam, ever.
+            Your info stays private — no spam, ever.
           </p>
         </form>
 
         <div class="form-success" id="form-success" aria-live="polite" hidden>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#d1fae5" /><path d="M14 24l7 7 13-13" stroke="#059669" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
-          <h3>We Got It!</h3>
-          <p>Expect a call or text within 1 business hour. You can also reach us directly:</p>
-          <a href="tel:+15555550100" class="btn btn-call" onclick="trackCall('thank-you')">Call (555) 555-0100</a>
+          <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#d1fae5"/><path d="M18 32l10 10 18-18" stroke="#059669" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Quote Request Sent!</h3>
+          <p>Cole will reach out within a few hours. If you'd like to talk now:</p>
+          <a href="tel:+17046090965" class="btn btn-call" onclick="trackCall('thank-you')">(704) 609-0965</a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ───────────────────────── SOCIAL PROOF BAR ───────────────────────── -->
-  <section class="proof-bar" aria-label="Social proof">
-    <div class="container proof-grid">
-      <div class="proof-item">
-        <strong>200+</strong>
-        <span>Local Jobs Completed</span>
-      </div>
-      <div class="proof-divider" aria-hidden="true"></div>
-      <div class="proof-item">
-        <strong>4.9 ★</strong>
-        <span>Google Rating (87 reviews)</span>
-      </div>
-      <div class="proof-divider" aria-hidden="true"></div>
-      <div class="proof-item">
-        <strong>12 yrs</strong>
-        <span>In Business</span>
-      </div>
-      <div class="proof-divider" aria-hidden="true"></div>
-      <div class="proof-item">
-        <strong>Same Week</strong>
-        <span>Scheduling Available</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────────────────── SERVICES ───────────────────────── -->
-  <section class="services" id="services">
+  <!-- ═══════════════════ FAQ ═══════════════════ -->
+  <section class="faq" id="faq">
     <div class="container">
-      <div class="section-label">What We Do</div>
-      <h2 class="section-title">Network Solutions for Homes &amp; Businesses</h2>
-      <p class="section-sub">From a single Ethernet drop to a full commercial buildout — we handle it all.</p>
-
-      <div class="services-grid">
-
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><rect x="6" y="18" width="36" height="6" rx="2" fill="#dbeafe"/><rect x="6" y="18" width="36" height="6" rx="2" fill="none" stroke="#0057FF" stroke-width="2"/><line x1="12" y1="24" x2="12" y2="36" stroke="#0057FF" stroke-width="2"/><line x1="24" y1="24" x2="24" y2="36" stroke="#0057FF" stroke-width="2"/><line x1="36" y1="24" x2="36" y2="36" stroke="#0057FF" stroke-width="2"/><circle cx="12" cy="37" r="3" fill="#0057FF"/><circle cx="24" cy="37" r="3" fill="#0057FF"/><circle cx="36" cy="37" r="3" fill="#0057FF"/><rect x="18" y="10" width="12" height="8" rx="2" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/></svg>
-          </div>
-          <h3>Structured Cabling &amp; Cat6</h3>
-          <p>Clean, code-compliant data cabling runs for new builds, retrofits, and office expansions. Certified terminations, tested at every drop.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><path d="M24 30c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10z" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/><path d="M14 14a14 14 0 0 1 20 0M10 10a20 20 0 0 1 28 0" fill="none" stroke="#0057FF" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="20" r="3" fill="#0057FF"/><line x1="24" y1="23" x2="24" y2="38" stroke="#0057FF" stroke-width="2"/></svg>
-          </div>
-          <h3>WiFi &amp; Wireless Networks</h3>
-          <p>Enterprise-grade access points, mesh systems, and proper RF planning for full-coverage, dead-spot-free WiFi — even in large or multi-story buildings.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><rect x="10" y="12" width="28" height="20" rx="3" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/><line x1="18" y1="32" x2="14" y2="40" stroke="#0057FF" stroke-width="2"/><line x1="30" y1="32" x2="34" y2="40" stroke="#0057FF" stroke-width="2"/><line x1="12" y1="40" x2="36" y2="40" stroke="#0057FF" stroke-width="2"/><circle cx="24" cy="22" r="3" fill="#0057FF"/></svg>
-          </div>
-          <h3>VoIP Phone Systems</h3>
-          <p>Modern IP phone installation, PBX setup, and SIP trunk configuration. Cut your phone bill while gaining flexibility and call features.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><rect x="14" y="10" width="20" height="16" rx="2" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/><circle cx="24" cy="18" r="4" fill="#0057FF"/><path d="M8 42c0-6.6 7.2-12 16-12s16 5.4 16 12" fill="none" stroke="#0057FF" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <h3>Security Cameras &amp; NVR</h3>
-          <p>IP camera installation, NVR / DVR setup, remote viewing configuration, and PoE cabling for small businesses and residential properties.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="3" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/><rect x="14" y="14" width="8" height="6" rx="1" fill="#0057FF"/><rect x="26" y="14" width="8" height="6" rx="1" fill="#0057FF"/><rect x="14" y="26" width="8" height="6" rx="1" fill="#0057FF"/><rect x="26" y="26" width="8" height="6" rx="1" fill="#0057FF"/></svg>
-          </div>
-          <h3>Server Room &amp; Rack Setup</h3>
-          <p>Rack mounting, patch panel termination, cable management, UPS installation, and documentation for a clean, maintainable server room.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/><path d="M24 16v8l5 5" stroke="#0057FF" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="24" cy="24" r="2" fill="#0057FF"/></svg>
-          </div>
-          <h3>Troubleshooting &amp; Upgrades</h3>
-          <p>Slow network, dead drops, or connectivity issues? We diagnose and fix existing infrastructure fast, with minimal disruption to your business.</p>
-        </article>
-
+      <div class="section-header center">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
       </div>
 
-      <div class="services-cta">
-        <p>Not sure which service you need?</p>
-        <a href="#free-estimate" class="btn btn-primary" onclick="scrollToForm()">Get a Free Estimate — We'll Figure It Out Together</a>
+      <div class="faq-grid">
+
+        <details class="faq-item">
+          <summary>How much does Cat6 wiring cost?</summary>
+          <div class="faq-body">
+            <p>Most single-room ethernet drops run <strong>$150–$300</strong> depending on the run length, wall material, and access. Whole-home projects vary by home size and number of drops. You'll always get a flat-rate quote before any work starts — no surprises.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How fast can you schedule?</summary>
+          <div class="faq-body">
+            <p>Most appointments happen within 2–3 business days. Urgent situations are often accommodated sooner — just call and ask. Cole keeps schedule flexibility for same-week bookings.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you work in my area?</summary>
+          <div class="faq-body">
+            <p>Cooper Electrical serves <strong>Harrisburg, Concord, Kannapolis, Huntersville</strong>, and the greater Charlotte metro area. Not sure if you're in range? Just call — Cole can usually make it work.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Will you patch holes in the drywall?</summary>
+          <div class="faq-body">
+            <p>Wiring runs are done as cleanly as possible, using existing pathways and low-profile wall plates. Minor drywall penetrations are typical for in-wall wiring. Cole will discuss the routing plan with you beforehand so there are no surprises about where cuts are made.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is the work guaranteed?</summary>
+          <div class="faq-body">
+            <p>Yes. Every job comes with a personal satisfaction guarantee. If something isn't right with the work after Cole leaves, he'll come back and make it right. No charge, no argument.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's the difference between a mesh WiFi system and wired access points?</summary>
+          <div class="faq-body">
+            <p>Mesh systems (like Eero or Orbi) rely on wireless backhaul between nodes, which eats half your bandwidth. Wired access points get a dedicated Cat6 connection to each unit — full speeds everywhere, no wireless interference, and far more reliable. Cooper Electrical specializes in the wired approach.</p>
+          </div>
+        </details>
+
       </div>
     </div>
   </section>
 
-  <!-- ───────────────────────── WHY US ───────────────────────── -->
-  <section class="why-us" id="why-us">
-    <div class="container">
-      <div class="section-label">Why NetPro Local</div>
-      <h2 class="section-title">The Local Advantage</h2>
-
-      <div class="why-grid">
-        <div class="why-item">
-          <div class="why-num">01</div>
-          <h3>Flat-Rate, Upfront Pricing</h3>
-          <p>You'll know the full cost before we start — no hidden charges, no "time &amp; materials" surprises at the end.</p>
-        </div>
-        <div class="why-item">
-          <div class="why-num">02</div>
-          <h3>Locally Owned &amp; Operated</h3>
-          <p>We live and work in the same community you do. Your reputation is our reputation — we don't cut corners.</p>
-        </div>
-        <div class="why-item">
-          <div class="why-num">03</div>
-          <h3>Licensed, Bonded &amp; Insured</h3>
-          <p>Full liability coverage and licensing means you're protected. We pull permits when required so your work is code-compliant.</p>
-        </div>
-        <div class="why-item">
-          <div class="why-num">04</div>
-          <h3>1-Year Workmanship Warranty</h3>
-          <p>If anything we installed fails due to our workmanship within a year, we come back and fix it. No charge, no argument.</p>
+  <!-- ═══════════════════ FINAL CTA ═══════════════════ -->
+  <section class="final-cta">
+    <div class="container final-cta-inner">
+      <div class="final-cta-copy">
+        <h2>Ready for a Fast, Reliable Network?</h2>
+        <p>Same-week scheduling · Flat-rate pricing · Talk directly to Cole</p>
+        <div class="final-cta-area">
+          <div class="service-areas">
+            <span>Harrisburg</span><span>·</span>
+            <span>Concord</span><span>·</span>
+            <span>Kannapolis</span><span>·</span>
+            <span>Huntersville</span><span>·</span>
+            <span>greater Charlotte</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ───────────────────────── REVIEWS ───────────────────────── -->
-  <section class="reviews" id="reviews">
-    <div class="container">
-      <div class="section-label">Google Reviews</div>
-      <h2 class="section-title">What Local Customers Say</h2>
-
-      <div class="reviews-grid">
-
-        <blockquote class="review-card">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p>"NetPro ran Cat6 throughout our new office — 34 drops, clean terminations, labeled everything. Done in two days. Pricing was exactly what they quoted. Will use again."</p>
-          <footer>
-            <strong>Marcus T.</strong>
-            <span>Office Manager · Verified Google Review</span>
-          </footer>
-        </blockquote>
-
-        <blockquote class="review-card">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p>"We had terrible WiFi dead zones in our retail store. They came out, assessed the space, installed three APs, and the coverage is incredible. Fast response, fair price."</p>
-          <footer>
-            <strong>Sarah K.</strong>
-            <span>Small Business Owner · Verified Google Review</span>
-          </footer>
-        </blockquote>
-
-        <blockquote class="review-card">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p>"Called on a Thursday, had cameras installed by Saturday. Professional crew, cleaned up after themselves, and walked me through the remote viewing app before leaving. Highly recommend."</p>
-          <footer>
-            <strong>David R.</strong>
-            <span>Homeowner · Verified Google Review</span>
-          </footer>
-        </blockquote>
-
-      </div>
-
-      <div class="reviews-cta">
-        <a href="#free-estimate" class="btn btn-primary" onclick="scrollToForm()">Join 200+ Satisfied Customers — Get Your Free Estimate</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────────────────── FINAL CTA BAND ───────────────────────── -->
-  <section class="cta-band">
-    <div class="container cta-band-inner">
-      <div class="cta-band-copy">
-        <h2>Ready to Get Started?</h2>
-        <p>Same-week appointments available. No obligation, no pressure — just an honest quote.</p>
-      </div>
-      <div class="cta-band-actions">
-        <a href="tel:+15555550100" class="btn btn-call btn-lg" onclick="trackCall('cta-band')">
+      <div class="final-cta-actions">
+        <a href="tel:+17046090965" class="btn btn-call btn-lg" onclick="trackCall('final-cta')">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-          Call Now
+          Call (704) 609-0965
         </a>
-        <a href="#free-estimate" class="btn btn-outline btn-lg" onclick="scrollToForm()">Request Estimate Online</a>
+        <a href="#quote" class="btn btn-ghost btn-lg" onclick="scrollToForm(event)">Request a Quote Online</a>
       </div>
     </div>
   </section>
 
-  <!-- ───────────────────────── FOOTER ───────────────────────── -->
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer class="site-footer">
     <div class="container footer-inner">
+
       <div class="footer-brand">
-        <a href="#" class="logo" aria-label="NetPro Local home">
-          <svg class="logo-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
-            <circle cx="18" cy="18" r="17" fill="#0057FF" />
-            <circle cx="18" cy="10" r="3.5" fill="#fff" />
-            <circle cx="8"  cy="26" r="3.5" fill="#fff" />
-            <circle cx="28" cy="26" r="3.5" fill="#fff" />
-            <line x1="18" y1="13" x2="8"  y2="23" stroke="#fff" stroke-width="2"/>
-            <line x1="18" y1="13" x2="28" y2="23" stroke="#fff" stroke-width="2"/>
-            <line x1="8"  y1="26" x2="28" y2="26" stroke="#fff" stroke-width="2"/>
-          </svg>
-          <span class="logo-text">NetPro <strong>Local</strong></span>
+        <a href="#top" class="logo" aria-label="Cooper Electrical home">
+          <div class="logo-mark">
+            <svg viewBox="0 0 40 40"><rect width="40" height="40" rx="8" fill="#F97316"/><path d="M20 7l2.5 8H30l-6.5 4.7 2.5 8L20 23l-6 4.7 2.5-8L10 15h7.5z" fill="#fff"/></svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-name">Cooper Electrical</span>
+            <span class="logo-tag">Harrisburg, NC</span>
+          </div>
         </a>
-        <p>Licensed &amp; insured network contractor serving [Your City] and surrounding areas.</p>
-        <a href="tel:+15555550100" class="footer-phone" onclick="trackCall('footer')">(555) 555-0100</a>
+        <p class="footer-desc">Fast, reliable home network wiring &amp; WiFi for homeowners in the greater Charlotte area. Locally owned and operated by Cole.</p>
       </div>
 
-      <nav class="footer-nav" aria-label="Footer navigation">
+      <nav class="footer-nav" aria-label="Footer services">
         <h3>Services</h3>
         <ul>
-          <li><a href="#services">Structured Cabling</a></li>
-          <li><a href="#services">WiFi Networks</a></li>
-          <li><a href="#services">VoIP Systems</a></li>
-          <li><a href="#services">Security Cameras</a></li>
-          <li><a href="#services">Server Room Setup</a></li>
+          <li><a href="#services">Cat6 Ethernet Wiring</a></li>
+          <li><a href="#services">WiFi Dead Zone Fix</a></li>
+          <li><a href="#services">Home Office Setup</a></li>
+          <li><a href="#services">Security Camera Wiring</a></li>
+          <li><a href="#services">Whole-Home Network</a></li>
           <li><a href="#services">Troubleshooting</a></li>
         </ul>
       </nav>
 
       <div class="footer-contact">
         <h3>Contact</h3>
-        <p>[Your City], [State] [ZIP]</p>
-        <p><a href="tel:+15555550100">(555) 555-0100</a></p>
-        <p><a href="mailto:info@netprolocal.com">info@netprolocal.com</a></p>
-        <p class="hours">Mon–Sat 7 AM – 7 PM<br>Emergency line 24/7</p>
+        <p>Harrisburg, NC</p>
+        <p>Serving Harrisburg, Concord,<br>Kannapolis, Huntersville<br>&amp; greater Charlotte</p>
+        <a href="tel:+17046090965" class="footer-phone">(704) 609-0965</a>
       </div>
+
     </div>
 
     <div class="footer-bottom">
       <div class="container">
-        <p>&copy; <span id="year"></span> NetPro Local. All rights reserved. &nbsp;|&nbsp; <a href="#privacy">Privacy Policy</a></p>
+        <p>&copy; <span id="year"></span> Cooper Electrical. Licensed &amp; Insured · Harrisburg, NC</p>
       </div>
     </div>
   </footer>
