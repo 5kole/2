@@ -38,13 +38,56 @@ document.querySelectorAll('a[href="#quote"]').forEach(function(a) {
   a.addEventListener('click', scrollToForm);
 });
 
-// ── Housecall Pro booking tracking ──────────────────────────
+// ── Housecall Pro: click tracking (engagement only, NOT conversion) ──
 function trackBooking(location) {
   if (typeof gtag === 'undefined') return;
+  // This fires when the modal opens — it is NOT a conversion.
   gtag('event', 'book_online_click', { event_category: 'engagement', event_label: location });
-  // Replace AW-CONVERSION_ID/BOOKING_LABEL with your Google Ads booking conversion label
-  gtag('event', 'conversion', { send_to: 'AW-CONVERSION_ID/BOOKING_LABEL' });
 }
+
+// ── Housecall Pro: fire conversion only on confirmed booking ─────────
+// HCP's iframe sends a postMessage when the customer completes a booking.
+// We listen for that message and fire the Google Ads conversion then.
+(function() {
+  var conversionFired = false; // guard against double-firing
+
+  window.addEventListener('message', function(event) {
+    // Only trust messages from Housecall Pro's domain
+    if (!event.origin || event.origin.indexOf('housecallpro.com') === -1) return;
+
+    var data = event.data;
+
+    // HCP can send the payload as a string or object — normalise both
+    if (typeof data === 'string') {
+      try { data = JSON.parse(data); } catch (e) { data = {}; }
+    }
+
+    // Match the booking-complete signal.
+    // HCP sends: { type: "hcp_booking_complete" }  (widget v2)
+    // Older widget may send: { event: "booking_confirmed" }
+    var isComplete =
+      data.type  === 'hcp_booking_complete'  ||
+      data.event === 'booking_confirmed'      ||
+      data.type  === 'booking_complete';
+
+    if (!isComplete || conversionFired) return;
+    conversionFired = true;
+
+    // ── Fire GA4 purchase/booking event ──────────────────────────────
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'booking_confirmed', {
+        event_category: 'conversion',
+        event_label:    'housecallpro',
+        value:          1,
+      });
+
+      // ── Fire Google Ads conversion ───────────────────────────────────
+      // Replace AW-CONVERSION_ID/BOOKING_LABEL with your Google Ads
+      // booking conversion label (create it as "Purchase" type in Google Ads).
+      gtag('event', 'conversion', { send_to: 'AW-CONVERSION_ID/BOOKING_LABEL' });
+    }
+  });
+}());
 
 // ── Google Ads conversion tracking ──────────────────────────
 function trackCall(location) {
