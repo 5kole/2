@@ -18,19 +18,17 @@
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    // Analytics
+    // Analytics (replace GA_MEASUREMENT_ID with your GA4 measurement ID)
     gtag('config', 'GA_MEASUREMENT_ID');
 
     // Google Ads account
-    gtag('config', 'AW-CONVERSION_ID');
+    gtag('config', 'AW-17992897776');
 
     // ── Conversion 1: Phone calls from the website ──────────────────────
-    // Creates a "Calls from website" conversion in Google Ads.
-    // gtag automatically replaces (704) 609-0965 with a Google forwarding
-    // number for visitors who arrived from your ads. A call = a conversion.
-    // Replace AW-CONVERSION_ID/CALL_LABEL with your real call conversion label.
-    gtag('config', 'AW-CONVERSION_ID/CALL_LABEL', {
-      phone_conversion_number: '(704) 609-0965'
+    // gtag automatically replaces the number with a Google forwarding number
+    // for visitors who arrived from your ads. A call = a conversion.
+    gtag('config', 'AW-17992897776/GBSYCITNgsUcEPCp14ND', {
+      phone_conversion_number: '7046090965'
     });
   </script>
 

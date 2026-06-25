@@ -49,11 +49,11 @@ document.querySelectorAll('a[href="#quote"]').forEach(function(a) {
 // calls from ad visitors by swapping the number with a Google forwarding number.
 // trackCall() fires a manual backup conversion for any click-to-call that the
 // auto-swap doesn't catch (e.g. visitors typing the number directly).
-// Replace AW-CONVERSION_ID/CALL_LABEL with your real Google Ads conversion label.
+// Replace AW-17992897776/GBSYCITNgsUcEPCp14ND with your real Google Ads conversion label.
 function trackCall(location) {
   if (typeof gtag === 'undefined') return;
   gtag('event', 'conversion', {
-    send_to: 'AW-CONVERSION_ID/CALL_LABEL',
+    send_to: 'AW-17992897776/GBSYCITNgsUcEPCp14ND',
     event_callback: function() {}
   });
   // GA4 event for reporting
