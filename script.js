@@ -1,19 +1,25 @@
-/* Cooper Electrical — script.js */
+/* Cooper Electrical — script.js
+ *
+ * Two conversion paths, nothing else:
+ *   1. Phone call   — gtag phone_conversion_number handles this automatically
+ *                     for ad traffic; trackCall() fires it as a manual backup
+ *                     for any click-to-call that gtag doesn't auto-detect.
+ *   2. Form submit  — fireFormConversion() fires after the quote form submits.
+ */
 
-// ── Footer year ──────────────────────────────────────────────
+// ── Footer year ──────────────────────────────────────────────────────────────
 var yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ── Mobile nav toggle ────────────────────────────────────────
+// ── Mobile nav toggle ────────────────────────────────────────────────────────
 var navToggle = document.querySelector('.nav-toggle');
 var mobileNav = document.getElementById('mobile-nav');
 if (navToggle && mobileNav) {
   navToggle.addEventListener('click', function() {
     var open = mobileNav.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', open);
-    mobileNav.setAttribute('aria-hidden', !open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    mobileNav.setAttribute('aria-hidden', String(!open));
   });
-  // Close on mobile link click
   mobileNav.querySelectorAll('.mobile-link').forEach(function(link) {
     link.addEventListener('click', function() {
       mobileNav.classList.remove('open');
@@ -23,7 +29,7 @@ if (navToggle && mobileNav) {
   });
 }
 
-// ── Smooth scroll for quote anchors ─────────────────────────
+// ── Smooth scroll to quote form ──────────────────────────────────────────────
 function scrollToForm(e) {
   if (e) e.preventDefault();
   var target = document.getElementById('quote');
@@ -38,129 +44,84 @@ document.querySelectorAll('a[href="#quote"]').forEach(function(a) {
   a.addEventListener('click', scrollToForm);
 });
 
-// ── Housecall Pro: click tracking (engagement only, NOT conversion) ──
-function trackBooking(location) {
-  if (typeof gtag === 'undefined') return;
-  // This fires when the modal opens — it is NOT a conversion.
-  gtag('event', 'book_online_click', { event_category: 'engagement', event_label: location });
-}
-
-// ── Housecall Pro: fire conversion only on confirmed booking ─────────
-// HCP's iframe sends a postMessage when the customer completes a booking.
-// We listen for that message and fire the Google Ads conversion then.
-(function() {
-  var conversionFired = false; // guard against double-firing
-
-  window.addEventListener('message', function(event) {
-    // Only trust messages from Housecall Pro's domain
-    if (!event.origin || event.origin.indexOf('housecallpro.com') === -1) return;
-
-    var data = event.data;
-
-    // HCP can send the payload as a string or object — normalise both
-    if (typeof data === 'string') {
-      try { data = JSON.parse(data); } catch (e) { data = {}; }
-    }
-
-    // Match the booking-complete signal.
-    // HCP sends: { type: "hcp_booking_complete" }  (widget v2)
-    // Older widget may send: { event: "booking_confirmed" }
-    var isComplete =
-      data.type  === 'hcp_booking_complete'  ||
-      data.event === 'booking_confirmed'      ||
-      data.type  === 'booking_complete';
-
-    if (!isComplete || conversionFired) return;
-    conversionFired = true;
-
-    // ── Fire GA4 purchase/booking event ──────────────────────────────
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'booking_confirmed', {
-        event_category: 'conversion',
-        event_label:    'housecallpro',
-        value:          1,
-      });
-
-      // ── Fire Google Ads conversion ───────────────────────────────────
-      // Replace AW-CONVERSION_ID/BOOKING_LABEL with your Google Ads
-      // booking conversion label (create it as "Purchase" type in Google Ads).
-      gtag('event', 'conversion', { send_to: 'AW-CONVERSION_ID/BOOKING_LABEL' });
-    }
-  });
-}());
-
-// ── Google Ads conversion tracking ──────────────────────────
+// ── CONVERSION 1: Phone call ─────────────────────────────────────────────────
+// gtag's phone_conversion_number config (set in <head>) automatically tracks
+// calls from ad visitors by swapping the number with a Google forwarding number.
+// trackCall() fires a manual backup conversion for any click-to-call that the
+// auto-swap doesn't catch (e.g. visitors typing the number directly).
+// Replace AW-CONVERSION_ID/CALL_LABEL with your real Google Ads conversion label.
 function trackCall(location) {
   if (typeof gtag === 'undefined') return;
-  gtag('event', 'click_to_call', { event_category: 'engagement', event_label: location });
-  // Replace AW-CONVERSION_ID/CALL_LABEL with real values from your Google Ads account
-  gtag('event', 'conversion', { send_to: 'AW-CONVERSION_ID/CALL_LABEL' });
+  gtag('event', 'conversion', {
+    send_to: 'AW-CONVERSION_ID/CALL_LABEL',
+    event_callback: function() {}
+  });
+  // GA4 event for reporting
+  gtag('event', 'click_to_call', { event_label: location });
 }
 
-function fireLeadConversion() {
+// ── CONVERSION 2: Form submission ────────────────────────────────────────────
+// Fires after the quote form is successfully submitted.
+// Replace AW-CONVERSION_ID/FORM_LABEL with your real Google Ads conversion label.
+function fireFormConversion() {
   if (typeof gtag === 'undefined') return;
-  gtag('event', 'generate_lead', { event_category: 'lead', value: 1 });
-  // Replace AW-CONVERSION_ID/FORM_LABEL with real value from Google Ads
-  gtag('event', 'conversion', { send_to: 'AW-CONVERSION_ID/FORM_LABEL' });
+  gtag('event', 'conversion', {
+    send_to: 'AW-CONVERSION_ID/FORM_LABEL',
+    event_callback: function() {}
+  });
+  // GA4 event for reporting
+  gtag('event', 'generate_lead');
 }
 
-// ── Phone formatting ─────────────────────────────────────────
+// ── HCP widget: click tracking only (not a conversion) ──────────────────────
+// Opens the Housecall Pro booking modal. No conversion fires here —
+// the two conversion methods are call and form only.
+function trackBooking(location) {
+  if (typeof gtag === 'undefined') return;
+  gtag('event', 'book_online_click', { event_label: location });
+}
+
+// ── Phone number formatting ──────────────────────────────────────────────────
 var phoneInput = document.getElementById('phone');
 if (phoneInput) {
   phoneInput.addEventListener('input', function() {
-    var digits = this.value.replace(/\D/g, '').slice(0, 10);
-    if (digits.length >= 7) {
-      this.value = '(' + digits.slice(0,3) + ') ' + digits.slice(3,6) + '-' + digits.slice(6);
-    } else if (digits.length >= 4) {
-      this.value = '(' + digits.slice(0,3) + ') ' + digits.slice(3);
-    } else {
-      this.value = digits;
-    }
+    var d = this.value.replace(/\D/g, '').slice(0, 10);
+    if      (d.length >= 7) this.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6);
+    else if (d.length >= 4) this.value = '(' + d.slice(0,3) + ') ' + d.slice(3);
+    else                    this.value = d;
   });
 }
 
-// ── Form validation ──────────────────────────────────────────
+// ── Form validation ──────────────────────────────────────────────────────────
 function setError(field, msg) {
   var err   = document.getElementById(field + '-error');
   var input = document.getElementById(field);
   if (err)   err.textContent = msg;
   if (input) input.classList.toggle('invalid', !!msg);
 }
-
 function clearErrors() {
-  ['name','phone','email','service'].forEach(function(f) { setError(f, ''); });
+  ['name', 'phone', 'email', 'service'].forEach(function(f) { setError(f, ''); });
 }
-
 function validate() {
   clearErrors();
   var ok = true;
-
   if (document.getElementById('name').value.trim().length < 2) {
-    setError('name', 'Please enter your name.');
-    ok = false;
+    setError('name', 'Please enter your name.'); ok = false;
   }
-
-  var digits = document.getElementById('phone').value.replace(/\D/g,'');
-  if (digits.length < 10) {
-    setError('phone', 'Enter a valid 10-digit phone number.');
-    ok = false;
+  if (document.getElementById('phone').value.replace(/\D/g,'').length < 10) {
+    setError('phone', 'Enter a valid 10-digit phone number.'); ok = false;
   }
-
   var email = document.getElementById('email').value.trim();
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    setError('email', 'Enter a valid email address.');
-    ok = false;
+    setError('email', 'Enter a valid email address.'); ok = false;
   }
-
   if (!document.getElementById('service').value) {
-    setError('service', 'Please select a service.');
-    ok = false;
+    setError('service', 'Please select a service.'); ok = false;
   }
-
   return ok;
 }
 
-// ── Form submission ──────────────────────────────────────────
+// ── Quote form submission ────────────────────────────────────────────────────
 var form = document.getElementById('lead-form');
 if (form) {
   form.addEventListener('submit', function(e) {
@@ -179,26 +140,23 @@ if (form) {
       city:    document.getElementById('city').value.trim(),
       message: document.getElementById('message').value.trim(),
       source:  document.referrer || 'direct',
-      page:    window.location.href,
       ts:      new Date().toISOString(),
     };
 
-    // ── Replace with your form backend endpoint ──────────────
-    // Formspree:  https://formspree.io/f/YOUR_FORM_ID
-    // Web3Forms:  https://api.web3forms.com/submit  (add access_key to payload)
-    var ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
-
-    fetch(ENDPOINT, {
+    // Replace with your Formspree endpoint: https://formspree.io/f/YOUR_FORM_ID
+    fetch('https://formspree.io/f/YOUR_FORM_ID', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body:    JSON.stringify(payload),
     })
-    .then(function(res) { if (!res.ok) throw new Error(); return res.json(); })
-    .then(showSuccess)
-    .catch(showSuccess); // Show success regardless so no lead is lost
+    .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
+    .then(onFormSuccess)
+    .catch(onFormSuccess); // show success anyway so no lead is lost
 
-    function showSuccess() {
-      fireLeadConversion();
+    function onFormSuccess() {
+      // ── CONVERSION 2 fires here ──────────────────────────────────────
+      fireFormConversion();
+
       var f = document.getElementById('lead-form');
       var s = document.getElementById('form-success');
       if (f) f.hidden = true;
@@ -209,11 +167,8 @@ if (form) {
   });
 }
 
-// ── Subtle scroll-in animations ──────────────────────────────
+// ── Scroll-in animations ─────────────────────────────────────────────────────
 if ('IntersectionObserver' in window) {
-  var els = document.querySelectorAll(
-    '.why-card, .service-card, .review-card, .process-step, .faq-item'
-  );
   var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -224,9 +179,11 @@ if ('IntersectionObserver' in window) {
     });
   }, { threshold: 0.1 });
 
-  els.forEach(function(el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(14px)';
+  document.querySelectorAll(
+    '.why-card, .service-card, .review-card, .process-step, .faq-item'
+  ).forEach(function(el) {
+    el.style.opacity    = '0';
+    el.style.transform  = 'translateY(14px)';
     el.style.transition = 'opacity .4s ease, transform .4s ease';
     io.observe(el);
   });

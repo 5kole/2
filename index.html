@@ -11,18 +11,31 @@
   <meta property="og:description" content="Same-week scheduling · Flat-rate pricing · Licensed & insured. Serving Harrisburg, Concord, Charlotte & surrounding areas." />
   <meta property="og:type" content="website" />
 
-  <!-- Housecall Pro booking widget -->
-  <script async src="https://online-booking.housecallpro.com/script.js?token=3bcc7813550e48a2b8075abcfa8fb0d7&orgName=Cooper-Electrical"></script>
-
-  <!-- Google tag — replace with real IDs -->
+  <!-- Google tag (replace GA_MEASUREMENT_ID and AW-CONVERSION_ID with your real IDs) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
+
+    // Analytics
     gtag('config', 'GA_MEASUREMENT_ID');
+
+    // Google Ads account
     gtag('config', 'AW-CONVERSION_ID');
+
+    // ── Conversion 1: Phone calls from the website ──────────────────────
+    // Creates a "Calls from website" conversion in Google Ads.
+    // gtag automatically replaces (704) 609-0965 with a Google forwarding
+    // number for visitors who arrived from your ads. A call = a conversion.
+    // Replace AW-CONVERSION_ID/CALL_LABEL with your real call conversion label.
+    gtag('config', 'AW-CONVERSION_ID/CALL_LABEL', {
+      phone_conversion_number: '(704) 609-0965'
+    });
   </script>
+
+  <!-- Housecall Pro booking widget -->
+  <script async src="https://online-booking.housecallpro.com/script.js?token=3bcc7813550e48a2b8075abcfa8fb0d7&orgName=Cooper-Electrical"></script>
 
   <title>Cooper Electrical | Home Network Wiring & WiFi — Harrisburg, NC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
