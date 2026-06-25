@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Professional network installation & structured cabling for homes and businesses. Licensed local contractor. Free estimate — call today!" />
+
+  <!-- Google tag (gtag.js) — replace GA_MEASUREMENT_ID and AW-CONVERSION_ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+    gtag('config', 'AW-CONVERSION_ID');
+  </script>
+
+  <title>NetPro Local | Network Installation & Cabling — Free Estimate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ───────────────────────── STICKY HEADER ───────────────────────── -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="NetPro Local home">
+        <svg class="logo-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+          <circle cx="18" cy="18" r="17" fill="#0057FF" />
+          <circle cx="18" cy="10" r="3.5" fill="#fff" />
+          <circle cx="8"  cy="26" r="3.5" fill="#fff" />
+          <circle cx="28" cy="26" r="3.5" fill="#fff" />
+          <line x1="18" y1="13" x2="8"  y2="23" stroke="#fff" stroke-width="2"/>
+          <line x1="18" y1="13" x2="28" y2="23" stroke="#fff" stroke-width="2"/>
+          <line x1="8"  y1="26" x2="28" y2="26" stroke="#fff" stroke-width="2"/>
+        </svg>
+        <span class="logo-text">NetPro <strong>Local</strong></span>
+      </a>
+
+      <a href="tel:+15555550100" class="btn btn-call header-cta" onclick="trackCall('header')">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        (555) 555-0100
+      </a>
+    </div>
+  </header>
+
+  <!-- ───────────────────────── HERO ───────────────────────── -->
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div class="hero-copy">
+        <div class="badge">&#10003; Licensed &amp; Insured · Serving [Your City] &amp; Surrounding Areas</div>
+        <h1>Professional Network Installation &amp; Cabling — Done Right, Done Fast</h1>
+        <p class="hero-sub">Structured cabling, WiFi, VoIP, camera systems &amp; more. Local crews, same-week scheduling, flat-rate pricing. Get your free estimate in minutes.</p>
+
+        <ul class="trust-list" aria-label="Key benefits">
+          <li>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 5.3l-8.4 8.4-4-4L5.7 8.3l2.6 2.6 7-7z" fill="currentColor"/></svg>
+            No-surprise flat-rate quotes
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 5.3l-8.4 8.4-4-4L5.7 8.3l2.6 2.6 7-7z" fill="currentColor"/></svg>
+            Same-week &amp; emergency scheduling
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 5.3l-8.4 8.4-4-4L5.7 8.3l2.6 2.6 7-7z" fill="currentColor"/></svg>
+            Residential &amp; commercial
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 5.3l-8.4 8.4-4-4L5.7 8.3l2.6 2.6 7-7z" fill="currentColor"/></svg>
+            1-year workmanship warranty
+          </li>
+        </ul>
+
+        <a href="tel:+15555550100" class="btn btn-call hero-phone" onclick="trackCall('hero')">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Call (555) 555-0100
+        </a>
+        <p class="availability">Mon–Sat 7 AM – 7 PM · Emergency line 24/7</p>
+      </div>
+
+      <!-- Lead Capture Form -->
+      <div class="hero-form-card" id="free-estimate">
+        <h2>Get Your Free Estimate</h2>
+        <p class="form-sub">Response within 1 business hour</p>
+
+        <form id="lead-form" novalidate>
+          <div class="field-group">
+            <label for="name">Full Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Jane Smith" required />
+            <span class="field-error" id="name-error" role="alert"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-0100" required />
+            <span class="field-error" id="phone-error" role="alert"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@example.com" />
+            <span class="field-error" id="email-error" role="alert"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="service">Service Needed <span aria-hidden="true">*</span></label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service…</option>
+              <option value="structured-cabling">Structured Cabling / Cat6</option>
+              <option value="wifi">WiFi Network Setup</option>
+              <option value="voip">VoIP Phone System</option>
+              <option value="cameras">Security Cameras</option>
+              <option value="server-room">Server Room / Rack Setup</option>
+              <option value="troubleshoot">Network Troubleshooting</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+            <span class="field-error" id="service-error" role="alert"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="message">Tell Us More (optional)</label>
+            <textarea id="message" name="message" rows="3" placeholder="e.g. New construction, 2,500 sq ft office, need 20 drops…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
+            <span class="btn-label">Send My Free Estimate Request</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+
+          <p class="form-privacy">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1l5 2v4c0 3-2.5 5.7-5 7C5.5 12.7 3 10 3 7V3l5-2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            Your info is private. No spam, ever.
+          </p>
+        </form>
+
+        <div class="form-success" id="form-success" aria-live="polite" hidden>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#d1fae5" /><path d="M14 24l7 7 13-13" stroke="#059669" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+          <h3>We Got It!</h3>
+          <p>Expect a call or text within 1 business hour. You can also reach us directly:</p>
+          <a href="tel:+15555550100" class="btn btn-call" onclick="trackCall('thank-you')">Call (555) 555-0100</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────────────────── SOCIAL PROOF BAR ───────────────────────── -->
+  <section class="proof-bar" aria-label="Social proof">
+    <div class="container proof-grid">
+      <div class="proof-item">
+        <strong>200+</strong>
+        <span>Local Jobs Completed</span>
+      </div>
+      <div class="proof-divider" aria-hidden="true"></div>
+      <div class="proof-item">
+        <strong>4.9 ★</strong>
+        <span>Google Rating (87 reviews)</span>
+      </div>
+      <div class="proof-divider" aria-hidden="true"></div>
+      <div class="proof-item">
+        <strong>12 yrs</strong>
+        <span>In Business</span>
+      </div>
+      <div class="proof-divider" aria-hidden="true"></div>
+      <div class="proof-item">
+        <strong>Same Week</strong>
+        <span>Scheduling Available</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── SERVICES ───────────────────────── -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Network Solutions for Homes &amp; Businesses</h2>
+      <p class="section-sub">From a single Ethernet drop to a full commercial buildout — we handle it all.</p>
+
+      <div class="services-grid">
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><rect x="6" y="18" width="36" height="6" rx="2" fill="#dbeafe"/><rect x="6" y="18" width="36" height="6" rx="2" fill="none" stroke="#0057FF" stroke-width="2"/><line x1="12" y1="24" x2="12" y2="36" stroke="#0057FF" stroke-width="2"/><line x1="24" y1="24" x2="24" y2="36" stroke="#0057FF" stroke-width="2"/><line x1="36" y1="24" x2="36" y2="36" stroke="#0057FF" stroke-width="2"/><circle cx="12" cy="37" r="3" fill="#0057FF"/><circle cx="24" cy="37" r="3" fill="#0057FF"/><circle cx="36" cy="37" r="3" fill="#0057FF"/><rect x="18" y="10" width="12" height="8" rx="2" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/></svg>
+          </div>
+          <h3>Structured Cabling &amp; Cat6</h3>
+          <p>Clean, code-compliant data cabling runs for new builds, retrofits, and office expansions. Certified terminations, tested at every drop.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M24 30c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10z" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/><path d="M14 14a14 14 0 0 1 20 0M10 10a20 20 0 0 1 28 0" fill="none" stroke="#0057FF" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="20" r="3" fill="#0057FF"/><line x1="24" y1="23" x2="24" y2="38" stroke="#0057FF" stroke-width="2"/></svg>
+          </div>
+          <h3>WiFi &amp; Wireless Networks</h3>
+          <p>Enterprise-grade access points, mesh systems, and proper RF planning for full-coverage, dead-spot-free WiFi — even in large or multi-story buildings.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><rect x="10" y="12" width="28" height="20" rx="3" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/><line x1="18" y1="32" x2="14" y2="40" stroke="#0057FF" stroke-width="2"/><line x1="30" y1="32" x2="34" y2="40" stroke="#0057FF" stroke-width="2"/><line x1="12" y1="40" x2="36" y2="40" stroke="#0057FF" stroke-width="2"/><circle cx="24" cy="22" r="3" fill="#0057FF"/></svg>
+          </div>
+          <h3>VoIP Phone Systems</h3>
+          <p>Modern IP phone installation, PBX setup, and SIP trunk configuration. Cut your phone bill while gaining flexibility and call features.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><rect x="14" y="10" width="20" height="16" rx="2" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/><circle cx="24" cy="18" r="4" fill="#0057FF"/><path d="M8 42c0-6.6 7.2-12 16-12s16 5.4 16 12" fill="none" stroke="#0057FF" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Security Cameras &amp; NVR</h3>
+          <p>IP camera installation, NVR / DVR setup, remote viewing configuration, and PoE cabling for small businesses and residential properties.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="3" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/><rect x="14" y="14" width="8" height="6" rx="1" fill="#0057FF"/><rect x="26" y="14" width="8" height="6" rx="1" fill="#0057FF"/><rect x="14" y="26" width="8" height="6" rx="1" fill="#0057FF"/><rect x="26" y="26" width="8" height="6" rx="1" fill="#0057FF"/></svg>
+          </div>
+          <h3>Server Room &amp; Rack Setup</h3>
+          <p>Rack mounting, patch panel termination, cable management, UPS installation, and documentation for a clean, maintainable server room.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="#dbeafe" stroke="#0057FF" stroke-width="2"/><path d="M24 16v8l5 5" stroke="#0057FF" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="24" cy="24" r="2" fill="#0057FF"/></svg>
+          </div>
+          <h3>Troubleshooting &amp; Upgrades</h3>
+          <p>Slow network, dead drops, or connectivity issues? We diagnose and fix existing infrastructure fast, with minimal disruption to your business.</p>
+        </article>
+
+      </div>
+
+      <div class="services-cta">
+        <p>Not sure which service you need?</p>
+        <a href="#free-estimate" class="btn btn-primary" onclick="scrollToForm()">Get a Free Estimate — We'll Figure It Out Together</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── WHY US ───────────────────────── -->
+  <section class="why-us" id="why-us">
+    <div class="container">
+      <div class="section-label">Why NetPro Local</div>
+      <h2 class="section-title">The Local Advantage</h2>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <h3>Flat-Rate, Upfront Pricing</h3>
+          <p>You'll know the full cost before we start — no hidden charges, no "time &amp; materials" surprises at the end.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <h3>Locally Owned &amp; Operated</h3>
+          <p>We live and work in the same community you do. Your reputation is our reputation — we don't cut corners.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <h3>Licensed, Bonded &amp; Insured</h3>
+          <p>Full liability coverage and licensing means you're protected. We pull permits when required so your work is code-compliant.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <h3>1-Year Workmanship Warranty</h3>
+          <p>If anything we installed fails due to our workmanship within a year, we come back and fix it. No charge, no argument.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── REVIEWS ───────────────────────── -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-label">Google Reviews</div>
+      <h2 class="section-title">What Local Customers Say</h2>
+
+      <div class="reviews-grid">
+
+        <blockquote class="review-card">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"NetPro ran Cat6 throughout our new office — 34 drops, clean terminations, labeled everything. Done in two days. Pricing was exactly what they quoted. Will use again."</p>
+          <footer>
+            <strong>Marcus T.</strong>
+            <span>Office Manager · Verified Google Review</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="review-card">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"We had terrible WiFi dead zones in our retail store. They came out, assessed the space, installed three APs, and the coverage is incredible. Fast response, fair price."</p>
+          <footer>
+            <strong>Sarah K.</strong>
+            <span>Small Business Owner · Verified Google Review</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="review-card">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"Called on a Thursday, had cameras installed by Saturday. Professional crew, cleaned up after themselves, and walked me through the remote viewing app before leaving. Highly recommend."</p>
+          <footer>
+            <strong>David R.</strong>
+            <span>Homeowner · Verified Google Review</span>
+          </footer>
+        </blockquote>
+
+      </div>
+
+      <div class="reviews-cta">
+        <a href="#free-estimate" class="btn btn-primary" onclick="scrollToForm()">Join 200+ Satisfied Customers — Get Your Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── FINAL CTA BAND ───────────────────────── -->
+  <section class="cta-band">
+    <div class="container cta-band-inner">
+      <div class="cta-band-copy">
+        <h2>Ready to Get Started?</h2>
+        <p>Same-week appointments available. No obligation, no pressure — just an honest quote.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a href="tel:+15555550100" class="btn btn-call btn-lg" onclick="trackCall('cta-band')">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Call Now
+        </a>
+        <a href="#free-estimate" class="btn btn-outline btn-lg" onclick="scrollToForm()">Request Estimate Online</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── FOOTER ───────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo" aria-label="NetPro Local home">
+          <svg class="logo-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+            <circle cx="18" cy="18" r="17" fill="#0057FF" />
+            <circle cx="18" cy="10" r="3.5" fill="#fff" />
+            <circle cx="8"  cy="26" r="3.5" fill="#fff" />
+            <circle cx="28" cy="26" r="3.5" fill="#fff" />
+            <line x1="18" y1="13" x2="8"  y2="23" stroke="#fff" stroke-width="2"/>
+            <line x1="18" y1="13" x2="28" y2="23" stroke="#fff" stroke-width="2"/>
+            <line x1="8"  y1="26" x2="28" y2="26" stroke="#fff" stroke-width="2"/>
+          </svg>
+          <span class="logo-text">NetPro <strong>Local</strong></span>
+        </a>
+        <p>Licensed &amp; insured network contractor serving [Your City] and surrounding areas.</p>
+        <a href="tel:+15555550100" class="footer-phone" onclick="trackCall('footer')">(555) 555-0100</a>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#services">Structured Cabling</a></li>
+          <li><a href="#services">WiFi Networks</a></li>
+          <li><a href="#services">VoIP Systems</a></li>
+          <li><a href="#services">Security Cameras</a></li>
+          <li><a href="#services">Server Room Setup</a></li>
+          <li><a href="#services">Troubleshooting</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p>[Your City], [State] [ZIP]</p>
+        <p><a href="tel:+15555550100">(555) 555-0100</a></p>
+        <p><a href="mailto:info@netprolocal.com">info@netprolocal.com</a></p>
+        <p class="hours">Mon–Sat 7 AM – 7 PM<br>Emergency line 24/7</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="year"></span> NetPro Local. All rights reserved. &nbsp;|&nbsp; <a href="#privacy">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
