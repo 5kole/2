@@ -329,50 +329,24 @@
   </div>
 </div>
 
-<!-- Form -->
+<!-- BOOKING -->
 <section id="quote">
   <div class="container">
-    <div class="form-wrap">
-      <h3>Fix My WiFi Dead Zone</h3>
-      <p class="sub">Describe the problem and we'll call within 2 hours (business hours).</p>
-      <div id="form-success-lp">✅ Got it! We'll call you shortly to schedule your site survey.</div>
-      <form id="lp-form">
-        <div class="field">
-          <label for="lp-name">Your Name *</label>
-          <input type="text" id="lp-name" placeholder="John Smith" autocomplete="name">
-          <div class="field-error" id="lp-name-error"></div>
-        </div>
-        <div class="field">
-          <label for="lp-phone">Phone Number *</label>
-          <input type="tel" id="lp-phone" placeholder="(704) 555-0100" autocomplete="tel">
-          <div class="field-error" id="lp-phone-error"></div>
-        </div>
-        <div class="field">
-          <label for="lp-email">Email (optional)</label>
-          <input type="email" id="lp-email" placeholder="you@email.com" autocomplete="email">
-          <div class="field-error" id="lp-email-error"></div>
-        </div>
-        <div class="field">
-          <label for="lp-service">What's the problem? *</label>
-          <select id="lp-service">
-            <option value="">— Select —</option>
-            <option value="dead-zone-room">Dead zone in specific room</option>
-            <option value="dead-zone-floor">Whole floor with no signal</option>
-            <option value="garage-outbuilding">Garage or outbuilding WiFi</option>
-            <option value="backyard">Backyard / outdoor WiFi</option>
-            <option value="whole-home">Whole-home coverage redesign</option>
-            <option value="slow-wifi">Slow speeds everywhere</option>
-            <option value="other">Other / Not sure</option>
-          </select>
-          <div class="field-error" id="lp-service-error"></div>
-        </div>
-        <div class="field">
-          <label for="lp-message">Describe the dead zone (optional)</label>
-          <textarea id="lp-message" placeholder="e.g. No signal in master bedroom upstairs, router is in the living room downstairs"></textarea>
-        </div>
-        <button type="submit" class="submit-btn" id="lp-submit-btn">Get My Free Site Survey →</button>
-        <p style="text-align:center;font-size:.8rem;color:var(--muted);margin-top:10px;">We'll call or text to schedule. No spam.</p>
-      </form>
+    <div class="form-wrap" style="text-align:center;">
+      <div style="font-size:2.6rem;margin-bottom:14px;">📅</div>
+      <h3>Book Your Free Site Survey</h3>
+      <p class="sub" style="margin-bottom:24px;">Pick a time that works for you — Cole will walk your home, map signal gaps, and quote a flat-rate fix on-site.</p>
+      <button class="submit-btn hcp-button"
+              data-token="3bcc7813550e48a2b8075abcfa8fb0d7"
+              data-orgname="Cooper-Electrical"
+              onclick="HCPWidget && HCPWidget.openModal(); trackBooking('lp-quote')">
+        Book Online — Free Site Survey
+      </button>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:20px;text-align:left;">
+        <li style="display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted);">✓ &nbsp;Same-week availability</li>
+        <li style="display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted);">✓ &nbsp;Flat-rate price given on-site</li>
+        <li style="display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted);">✓ &nbsp;No obligation, no pressure</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -425,96 +399,9 @@
     gtag('event', 'conversion', { send_to: 'AW-17992897776/GBSYCITNgsUcEPCp14ND', event_callback: function(){} });
     gtag('event', 'click_to_call', { event_label: loc });
   }
-  function fireFormConversion() {
-    if (typeof gtag === 'undefined') return;
-    gtag('event', 'conversion', { send_to: 'AW-17992897776/sit7CImd18UcEPCp14ND', event_callback: function(){} });
-    gtag('event', 'generate_lead');
-  }
   function trackBooking(loc) {
     if (typeof gtag === 'undefined') return;
     gtag('event', 'book_online_click', { event_label: loc });
-  }
-
-  var ph = document.getElementById('lp-phone');
-  if (ph) ph.addEventListener('input', function() {
-    var d = this.value.replace(/\D/g,'').slice(0,10);
-    if      (d.length >= 7) this.value = '('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6);
-    else if (d.length >= 4) this.value = '('+d.slice(0,3)+') '+d.slice(3);
-    else                    this.value = d;
-  });
-
-  var lpForm = document.getElementById('lp-form');
-  if (lpForm) {
-    lpForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var name    = document.getElementById('lp-name');
-      var phone   = document.getElementById('lp-phone');
-      var email   = document.getElementById('lp-email');
-      var service = document.getElementById('lp-service');
-      var ok = true;
-
-      ['lp-name','lp-phone','lp-email','lp-service'].forEach(function(id) {
-        var err = document.getElementById(id+'-error');
-        if (err) err.textContent = '';
-        var inp = document.getElementById(id);
-        if (inp) inp.classList.remove('invalid');
-      });
-
-      if (name.value.trim().length < 2) {
-        document.getElementById('lp-name-error').textContent = 'Please enter your name.';
-        name.classList.add('invalid'); ok = false;
-      }
-      if (phone.value.replace(/\D/g,'').length < 10) {
-        document.getElementById('lp-phone-error').textContent = 'Enter a valid 10-digit phone number.';
-        phone.classList.add('invalid'); ok = false;
-      }
-      if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-        document.getElementById('lp-email-error').textContent = 'Enter a valid email address.';
-        email.classList.add('invalid'); ok = false;
-      }
-      if (!service.value) {
-        document.getElementById('lp-service-error').textContent = 'Please select an option.';
-        service.classList.add('invalid'); ok = false;
-      }
-      if (!ok) return;
-
-      var btn = document.getElementById('lp-submit-btn');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-
-      var payload = {
-        name:    name.value.trim(),
-        phone:   phone.value.trim(),
-        email:   email.value.trim(),
-        service: service.value,
-        message: document.getElementById('lp-message').value.trim(),
-        page:    'wifi-dead-zone',
-        source:  document.referrer || 'direct',
-        ts:      new Date().toISOString(),
-      };
-
-      var lines = [
-        'Name: '    + payload.name,
-        'Phone: '   + payload.phone,
-        'Email: '   + (payload.email || 'not provided'),
-        'Service: ' + payload.service,
-        'Message: ' + (payload.message || 'none'),
-        'Page: wifi-dead-zone',
-        '',
-        'Source: '  + payload.source,
-        'Time: '    + payload.ts,
-      ];
-      var subject = encodeURIComponent('New Lead: ' + payload.service + ' — ' + payload.name);
-      var body    = encodeURIComponent(lines.join('\n'));
-      window.location.href = 'mailto:colealancooper@gmail.com?subject=' + subject + '&body=' + body;
-      success();
-
-      function success() {
-        fireFormConversion();
-        lpForm.style.display = 'none';
-        document.getElementById('form-success-lp').style.display = 'block';
-      }
-    });
   }
 </script>
 </body>

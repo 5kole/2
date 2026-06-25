@@ -715,68 +715,31 @@
         </div>
       </div>
 
-      <div class="quote-form-card">
-        <form id="lead-form" novalidate>
-          <div class="field-row">
-            <div class="field-group">
-              <label for="name">Your Name <span aria-hidden="true">*</span></label>
-              <input type="text" id="name" name="name" autocomplete="name" placeholder="Jane Smith" required />
-              <span class="field-error" id="name-error" role="alert"></span>
-            </div>
-            <div class="field-group">
-              <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(704) 555-0100" required />
-              <span class="field-error" id="phone-error" role="alert"></span>
-            </div>
-          </div>
-
-          <div class="field-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@example.com" />
-            <span class="field-error" id="email-error" role="alert"></span>
-          </div>
-
-          <div class="field-group">
-            <label for="service">Service Needed <span aria-hidden="true">*</span></label>
-            <select id="service" name="service" required>
-              <option value="" disabled selected>Select a service…</option>
-              <option value="cat6-ethernet">Cat6 Ethernet Wiring</option>
-              <option value="wifi-coverage">WiFi Dead Zone Fix</option>
-              <option value="home-office">Home Office Setup</option>
-              <option value="security-cameras">Security Camera Wiring</option>
-              <option value="whole-home">Whole-Home Network</option>
-              <option value="troubleshoot">Troubleshooting / Upgrade</option>
-              <option value="other">Not Sure — Need Advice</option>
-            </select>
-            <span class="field-error" id="service-error" role="alert"></span>
-          </div>
-
-          <div class="field-group">
-            <label for="city">City / Neighborhood</label>
-            <input type="text" id="city" name="city" placeholder="Harrisburg, Concord, Kannapolis…" />
-          </div>
-
-          <div class="field-group">
-            <label for="message">Tell Cole More (optional)</label>
-            <textarea id="message" name="message" rows="3" placeholder="e.g. 2-story house, need ethernet in 3 rooms and WiFi dead zone in master bedroom…"></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
-            <span class="btn-label">Send My Quote Request</span>
-            <span class="btn-spinner" aria-hidden="true"></span>
+      <div class="quote-form-card hcp-book-card">
+        <div class="hcp-book-inner">
+          <div class="hcp-book-icon" aria-hidden="true">📅</div>
+          <h3>Book Your Free Estimate</h3>
+          <p>Pick a time that works for you. Cole will confirm your appointment and provide a flat-rate quote on-site — no obligation.</p>
+          <button class="btn btn-primary btn-submit hcp-button"
+                  data-token="3bcc7813550e48a2b8075abcfa8fb0d7"
+                  data-orgname="Cooper-Electrical"
+                  onclick="HCPWidget && HCPWidget.openModal(); trackBooking('quote-section')">
+            Book Online — Free Estimate
           </button>
-
-          <p class="form-privacy">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1l5 2v4c0 3-2.5 5.7-5 7C5.5 12.7 3 10 3 7V3l5-2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-            Your info stays private — no spam, ever.
-          </p>
-        </form>
-
-        <div class="form-success" id="form-success" aria-live="polite" hidden>
-          <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#d1fae5"/><path d="M18 32l10 10 18-18" stroke="#059669" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3>Quote Request Sent!</h3>
-          <p>Cole will reach out within a few hours. If you'd like to talk now:</p>
-          <a href="tel:+17046090965" class="btn btn-call" onclick="trackCall('thank-you')">(704) 609-0965</a>
+          <ul class="hcp-book-features">
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 5.3l-8.4 8.4-4-4L5.7 8.3l2.6 2.6 7-7z" fill="currentColor"/></svg>
+              Same-week availability
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 5.3l-8.4 8.4-4-4L5.7 8.3l2.6 2.6 7-7z" fill="currentColor"/></svg>
+              Flat-rate price given on-site
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 5.3l-8.4 8.4-4-4L5.7 8.3l2.6 2.6 7-7z" fill="currentColor"/></svg>
+              No obligation, no pressure
+            </li>
+          </ul>
         </div>
       </div>
 
