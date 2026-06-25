@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cooper Electrical — Campaign Menu</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #0d1117;
+      --surface: #161b22;
+      --border:  #30363d;
+      --text:    #e6edf3;
+      --muted:   #8b949e;
+      --blue:    #58a6ff;
+      --green:   #3fb950;
+      --yellow:  #d29922;
+      --red:     #f85149;
+      --purple:  #bc8cff;
+      --font:    'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 24px;
+    }
+    .page-header {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header h1 { font-size: 1.2rem; color: var(--text); }
+    .page-header h1 span { color: var(--blue); }
+    .header-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .header-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .8rem;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: color .2s, border-color .2s;
+    }
+    .header-links a:hover { color: var(--blue); border-color: var(--blue); }
+
+    .container { max-width: 900px; margin: 0 auto; }
+
+    /* Section headers */
+    .section-label {
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Landing page cards */
+    .lp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .lp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .lp-card:hover { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+    .lp-card .card-icon { font-size: 1.5rem; }
+    .lp-card .card-title { font-size: .97rem; font-weight: 700; color: var(--blue); }
+    .lp-card .card-url { font-size: .75rem; color: var(--muted); }
+    .lp-card .card-desc { font-size: .82rem; color: var(--muted); line-height: 1.55; }
+    .card-keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+    .kw {
+      font-size: .7rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .kw-exact   { background: rgba(88,166,255,.12); color: var(--blue); border: 1px solid rgba(88,166,255,.3); }
+    .kw-phrase  { background: rgba(210,153,34,.12); color: var(--yellow); border: 1px solid rgba(210,153,34,.3); }
+
+    /* Main site + notes row */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .meta-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: border-color .2s;
+    }
+    .meta-card:hover { border-color: var(--green); }
+    .meta-card .meta-icon { font-size: 1.4rem; }
+    .meta-card .meta-label { font-size: .78rem; color: var(--muted); }
+    .meta-card .meta-title { font-size: .92rem; font-weight: 700; color: var(--green); }
+
+    /* Conversion tracking summary */
+    .conversion-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .8rem;
+      margin-bottom: 36px;
+    }
+    .conversion-table th {
+      background: var(--surface);
+      color: var(--muted);
+      font-size: .7rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .conversion-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .conversion-table tr:hover td { background: rgba(255,255,255,.02); }
+    .tag {
+      display: inline-block;
+      font-size: .68rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .tag-call  { background: rgba(63,185,80,.15); color: var(--green); }
+    .tag-form  { background: rgba(88,166,255,.15); color: var(--blue); }
+    .tag-ga4   { background: rgba(188,140,255,.15); color: var(--purple); }
+
+    /* Checklist */
+    .checklist { list-style: none; font-size: .82rem; display: flex; flex-direction: column; gap: 8px; margin-bottom: 36px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; color: var(--muted); }
+    .checklist li .ci { flex-shrink: 0; width: 16px; height: 16px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: .7rem; font-weight: 800; }
+    .ci-done  { background: rgba(63,185,80,.2); color: var(--green); }
+    .ci-todo  { background: rgba(248,81,73,.15); color: var(--red); border: 1px solid rgba(248,81,73,.3); }
+    .checklist li .ci-text { line-height: 1.5; }
+    .checklist li .ci-text .badge { display: inline-block; background: rgba(210,153,34,.15); color: var(--yellow); font-size: .68rem; padding: 1px 6px; border-radius: 3px; margin-left: 5px; }
+
+    .footer-bar {
+      max-width: 900px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: .75rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>⚡ Cooper Electrical <span>/ Campaign Hub</span></h1>
+  <div class="header-links">
+    <a href="index.html">Main Site</a>
+    <a href="notes.html">Notes &amp; Keywords</a>
+    <a href="https://ads.google.com" target="_blank" rel="noopener">Google Ads ↗</a>
+    <a href="https://analytics.google.com" target="_blank" rel="noopener">GA4 ↗</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Landing pages -->
+  <p class="section-label">Service Landing Pages</p>
+  <div class="lp-grid">
+
+    <a href="cat6-wiring.html" class="lp-card">
+      <div class="card-icon">🔌</div>
+      <div class="card-title">Cat6 Ethernet Wiring</div>
+      <div class="card-url">cat6-wiring.html</div>
+      <div class="card-desc">Targets homeowners searching for ethernet installation. Includes pricing tiers, 6-service grid, and 6-FAQ. Designed for high Quality Score on exact-match queries.</div>
+      <div class="card-keywords">
+        <span class="kw kw-exact">[cat6 wiring near me]</span>
+        <span class="kw kw-exact">[ethernet installation]</span>
+        <span class="kw kw-phrase">"cat6 wiring"</span>
+        <span class="kw kw-phrase">"ethernet contractor"</span>
+      </div>
+    </a>
+
+    <a href="wifi-dead-zone.html" class="lp-card">
+      <div class="card-icon">📶</div>
+      <div class="card-title">WiFi Dead Zone Fix</div>
+      <div class="card-url">wifi-dead-zone.html</div>
+      <div class="card-desc">Problem/solution framing: why mesh nodes fail vs. hardwired APs. Includes site survey CTA. Best for intent-heavy searches from frustrated homeowners.</div>
+      <div class="card-keywords">
+        <span class="kw kw-exact">[wifi dead zone fix]</span>
+        <span class="kw kw-exact">[wifi extender install]</span>
+        <span class="kw kw-phrase">"fix wifi dead zone"</span>
+        <span class="kw kw-phrase">"wifi dead spot"</span>
+      </div>
+    </a>
+
+    <a href="home-office-network.html" class="lp-card">
+      <div class="card-icon">🖥️</div>
+      <div class="card-title">Home Office Network Setup</div>
+      <div class="card-url">home-office-network.html</div>
+      <div class="card-desc">Targets remote workers who need a reliable connection for video calls. Benefit-led hero, WFH stats bar, testimonial. High buyer intent from WFH audience.</div>
+      <div class="card-keywords">
+        <span class="kw kw-exact">[home office ethernet setup]</span>
+        <span class="kw kw-exact">[home office wiring]</span>
+        <span class="kw kw-phrase">"ethernet for home office"</span>
+        <span class="kw kw-phrase">"wired internet home office"</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Meta pages -->
+  <p class="section-label">Site Pages</p>
+  <div class="meta-grid">
+    <a href="index.html" class="meta-card">
+      <div class="meta-icon">🏠</div>
+      <div>
+        <div class="meta-label">Main Landing Page</div>
+        <div class="meta-title">index.html</div>
+      </div>
+    </a>
+    <a href="notes.html" class="meta-card">
+      <div class="meta-icon">📝</div>
+      <div>
+        <div class="meta-label">Notes &amp; Ad Keywords</div>
+        <div class="meta-title">notes.html</div>
+      </div>
+    </a>
+    <a href="menu.html" class="meta-card">
+      <div class="meta-icon">🗂️</div>
+      <div>
+        <div class="meta-label">You are here</div>
+        <div class="meta-title">menu.html</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Conversion tracking -->
+  <p class="section-label">Conversion Tracking IDs</p>
+  <table class="conversion-table">
+    <thead>
+      <tr>
+        <th>Conversion</th>
+        <th>Google Ads ID</th>
+        <th>Trigger</th>
+        <th>Pages</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="tag tag-call">CALL</span> Phone from website</td>
+        <td style="font-size:.75rem;color:#58a6ff;">AW-17992897776<br>/GBSYCITNgsUcEPCp14ND</td>
+        <td style="font-size:.75rem;color:#8b949e;">Auto: gtag phone_conversion_number swap<br>Manual: trackCall() on every phone link</td>
+        <td style="font-size:.75rem;color:#8b949e;">All pages</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-form">FORM</span> Quote form submit</td>
+        <td style="font-size:.75rem;color:#58a6ff;">AW-17992897776<br>/sit7CImd18UcEPCp14ND</td>
+        <td style="font-size:.75rem;color:#8b949e;">fireFormConversion() inside onFormSuccess() callback only</td>
+        <td style="font-size:.75rem;color:#8b949e;">All pages</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-ga4">GA4</span> Analytics</td>
+        <td style="font-size:.75rem;color:#bc8cff;">G-T0JQCB5RWP</td>
+        <td style="font-size:.75rem;color:#8b949e;">Automatic pageview + click_to_call, generate_lead, book_online_click events</td>
+        <td style="font-size:.75rem;color:#8b949e;">All pages</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Setup checklist -->
+  <p class="section-label">Setup Checklist</p>
+  <ul class="checklist">
+    <li>
+      <span class="ci ci-done">✓</span>
+      <span class="ci-text">Main landing page built (index.html) — all sections, HCP widget, real phone, GA4 + Ads tracking</span>
+    </li>
+    <li>
+      <span class="ci ci-done">✓</span>
+      <span class="ci-text">Google Ads call conversion wired — AW-17992897776/GBSYCITNgsUcEPCp14ND, phone_conversion_number: 7046090965</span>
+    </li>
+    <li>
+      <span class="ci ci-done">✓</span>
+      <span class="ci-text">Google Ads form conversion wired — AW-17992897776/sit7CImd18UcEPCp14ND, fires only inside POST success callback</span>
+    </li>
+    <li>
+      <span class="ci ci-done">✓</span>
+      <span class="ci-text">GA4 wired — G-T0JQCB5RWP, stream set to 5kole.github.io/2/</span>
+    </li>
+    <li>
+      <span class="ci ci-done">✓</span>
+      <span class="ci-text">HCP booking widget — token 3bcc7813550e48a2b8075abcfa8fb0d7, engagement tracking only (no conversion)</span>
+    </li>
+    <li>
+      <span class="ci ci-done">✓</span>
+      <span class="ci-text">3 Google Ads landing pages — cat6-wiring.html, wifi-dead-zone.html, home-office-network.html</span>
+    </li>
+    <li>
+      <span class="ci ci-done">✓</span>
+      <span class="ci-text">Notes page with Google Ads keyword list (notes.html, noindex)</span>
+    </li>
+    <li>
+      <span class="ci ci-todo">○</span>
+      <span class="ci-text">Replace Formspree placeholder <span class="badge">ACTION NEEDED</span> — go to formspree.io, create a form, paste real endpoint URL into YOUR_FORM_ID on all 4 pages</span>
+    </li>
+    <li>
+      <span class="ci ci-todo">○</span>
+      <span class="ci-text">In Google Ads: set call conversion minimum duration to 60 seconds to filter accidental dials</span>
+    </li>
+    <li>
+      <span class="ci ci-todo">○</span>
+      <span class="ci-text">Create Google Ads campaigns — upload keyword lists from notes.html, set location targeting to Harrisburg/Concord/Charlotte NC</span>
+    </li>
+    <li>
+      <span class="ci ci-todo">○</span>
+      <span class="ci-text">Verify conversions in Google Ads Tag Assistant after first test form submission and first test call</span>
+    </li>
+  </ul>
+
+</div>
+
+<div class="footer-bar">
+  <span>Cooper Electrical — Campaign Hub</span>
+  <span>Last updated: <span id="menu-date"></span></span>
+</div>
+
+<script>
+  var d = document.getElementById('menu-date');
+  if (d) d.textContent = new Date().toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' });
+</script>
+</body>
+</html>
