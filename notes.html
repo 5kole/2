@@ -479,11 +479,74 @@
     var lastSaved = document.getElementById('last-saved');
     var saveTimer;
 
+    var DEFAULT_NOTE = [
+      '╔══════════════════════════════════════════════════════════════╗',
+      '║  COOPER ELECTRICAL — SITE MAP & CAMPAIGN REFERENCE          ║',
+      '║  https://5kole.github.io/2/                                 ║',
+      '╚══════════════════════════════════════════════════════════════╝',
+      '',
+      '── ADMIN PAGES ─────────────────────────────────────────────────',
+      '  /index.html              Main landing page (homepage)',
+      '  /menu.html               Campaign hub + page links',
+      '  /notes.html              This page (noindex)',
+      '',
+      '── GOOGLE ADS LANDING PAGES ────────────────────────────────────',
+      '',
+      '  [Campaign 1] Cat6 / Ethernet Installation',
+      '  /cat6-wiring.html',
+      '  Keywords: [cat6 wiring near me], [ethernet drop installation],',
+      '            "cat6 wiring", "ethernet wiring contractor"',
+      '',
+      '  [Campaign 2] WiFi Dead Zones / Coverage',
+      '  /wifi-dead-zone.html',
+      '  Keywords: [wifi dead zone fix near me], "home wifi installer",',
+      '            "fix wifi dead zone", "access point installation"',
+      '',
+      '  [Campaign 3] Home Office / Remote Work',
+      '  /home-office-network.html',
+      '  Keywords: [home office ethernet setup], "ethernet for home office",',
+      '            "work from home internet setup"',
+      '',
+      '  [Campaign 4] Low Voltage Installer  ★ TOP PERFORMER',
+      '  /low-voltage-installer.html',
+      '  Keywords: "low voltage installer near me" (35 clicks · $2.92 CPC),',
+      '            [low voltage wiring contractor], "home network installer"',
+      '',
+      '  [Campaign 5] Security Camera Wiring',
+      '  /security-camera-wiring.html',
+      '  Keywords: [security camera installation near me], "wired security camera",',
+      '            "poe camera installation service", [nvr camera wiring]',
+      '',
+      '  [Campaign 6] Location Targeting — Charlotte Metro',
+      '  /network-installer-charlotte-nc.html',
+      '  Keywords: "home network installation charlotte nc" (7 clicks · $29.52),',
+      '            [ethernet wiring harrisburg nc], "network installer charlotte nc"',
+      '',
+      '── TRACKING ─────────────────────────────────────────────────────',
+      '  GA4 Measurement ID:   G-T0JQCB5RWP',
+      '  Google Ads ID:        AW-17992897776',
+      '  Call Conversion:      AW-17992897776/GBSYCITNgsUcEPCp14ND',
+      '  Phone (tracked):      (704) 609-0965',
+      '  HCP Token:            3bcc7813550e48a2b8075abcfa8fb0d7',
+      '',
+      '── LIVE CAMPAIGN DATA (Search-11 · networking) ──────────────────',
+      '  Total: 63 clicks · $222.40',
+      '  "low voltage installer near me"        35 clicks · $102.29 · $2.92 CPC',
+      '  "home wifi installer"                  11 clicks ·  $40.07 · $3.64 CPC',
+      '  [network cable installer near me]       8 clicks ·  $46.08 · $5.76 CPC',
+      '  "home network installation charlotte"   7 clicks ·  $29.52 · $4.22 CPC',
+      '',
+      '── NOTES ────────────────────────────────────────────────────────',
+      ''
+    ].join('\n');
+
     // Load saved note
     var saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       notepad.value = saved;
       lastSaved.textContent = 'Last saved: ' + new Date(+localStorage.getItem(STORAGE_KEY + '-ts')).toLocaleString();
+    } else {
+      notepad.value = DEFAULT_NOTE;
     }
     updateCount();
 
