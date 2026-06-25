@@ -38,6 +38,14 @@ document.querySelectorAll('a[href="#quote"]').forEach(function(a) {
   a.addEventListener('click', scrollToForm);
 });
 
+// ── Housecall Pro booking tracking ──────────────────────────
+function trackBooking(location) {
+  if (typeof gtag === 'undefined') return;
+  gtag('event', 'book_online_click', { event_category: 'engagement', event_label: location });
+  // Replace AW-CONVERSION_ID/BOOKING_LABEL with your Google Ads booking conversion label
+  gtag('event', 'conversion', { send_to: 'AW-CONVERSION_ID/BOOKING_LABEL' });
+}
+
 // ── Google Ads conversion tracking ──────────────────────────
 function trackCall(location) {
   if (typeof gtag === 'undefined') return;

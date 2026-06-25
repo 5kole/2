@@ -85,6 +85,14 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.65;
 }
 
+/* ── Housecall Pro widget reset (let .btn classes own the style) ── */
+.hcp-button {
+  font-family: var(--font) !important;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
 /* ── Buttons ─────────────────────────────────────────────────── */
 .btn {
   display: inline-flex;

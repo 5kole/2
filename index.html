@@ -11,6 +11,9 @@
   <meta property="og:description" content="Same-week scheduling · Flat-rate pricing · Licensed & insured. Serving Harrisburg, Concord, Charlotte & surrounding areas." />
   <meta property="og:type" content="website" />
 
+  <!-- Housecall Pro booking widget -->
+  <script async src="https://online-booking.housecallpro.com/script.js?token=3bcc7813550e48a2b8075abcfa8fb0d7&orgName=Cooper-Electrical"></script>
+
   <!-- Google tag — replace with real IDs -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
   <script>
@@ -100,7 +103,7 @@
           Call Cole: (704) 609-0965
         </div>
       </div>
-      <a href="tel:+17046090965" class="avail-cta" onclick="trackCall('avail-bar')">Call Now</a>
+      <button data-token="3bcc7813550e48a2b8075abcfa8fb0d7" data-orgname="Cooper-Electrical" class="hcp-button avail-cta" onclick="HCPWidget.openModal(); trackBooking('avail-bar')">Book Online</button>
     </div>
   </div>
 
@@ -135,11 +138,14 @@
         </div>
 
         <div class="hero-actions">
+          <button data-token="3bcc7813550e48a2b8075abcfa8fb0d7" data-orgname="Cooper-Electrical" class="hcp-button btn btn-primary btn-lg" onclick="HCPWidget.openModal(); trackBooking('hero')">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></svg>
+            Book Online Now
+          </button>
           <a href="tel:+17046090965" class="btn btn-call btn-lg" onclick="trackCall('hero')">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-            Call Cole Now
+            Call Cole
           </a>
-          <a href="#quote" class="btn btn-ghost btn-lg" onclick="scrollToForm(event)">Get a Free Quote</a>
         </div>
         <p class="hero-note">Typical job $150–$300 · Free on-site estimates · One-day completion</p>
       </div>
@@ -371,10 +377,10 @@
                 <li>Gigabit speeds, rock-solid connection</li>
                 <li>Permit-ready work, properly documented</li>
               </ul>
-              <a href="tel:+17046090965" class="btn btn-primary" onclick="trackCall('spotlight-cat6')">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+              <button data-token="3bcc7813550e48a2b8075abcfa8fb0d7" data-orgname="Cooper-Electrical" class="hcp-button btn btn-primary" onclick="HCPWidget.openModal(); trackBooking('spotlight-cat6')">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></svg>
                 Schedule Now
-              </a>
+              </button>
             </div>
           </div>
 
@@ -417,10 +423,10 @@
                 <li>Bedroom, basement, garage, backyard</li>
                 <li>Professional RF planning included</li>
               </ul>
-              <a href="tel:+17046090965" class="btn btn-primary" onclick="trackCall('spotlight-wifi')">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+              <button data-token="3bcc7813550e48a2b8075abcfa8fb0d7" data-orgname="Cooper-Electrical" class="hcp-button btn btn-primary" onclick="HCPWidget.openModal(); trackBooking('spotlight-wifi')">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></svg>
                 Schedule Now
-              </a>
+              </button>
             </div>
           </div>
 
@@ -463,10 +469,10 @@
                 <li>NVR / DVR wiring and configuration</li>
                 <li>Remote viewing setup on your phone</li>
               </ul>
-              <a href="tel:+17046090965" class="btn btn-primary" onclick="trackCall('spotlight-cameras')">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+              <button data-token="3bcc7813550e48a2b8075abcfa8fb0d7" data-orgname="Cooper-Electrical" class="hcp-button btn btn-primary" onclick="HCPWidget.openModal(); trackBooking('spotlight-cameras')">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></svg>
                 Schedule Now
-              </a>
+              </button>
             </div>
           </div>
 
@@ -593,9 +599,13 @@
       </div>
 
       <div class="process-cta">
-        <a href="tel:+17046090965" class="btn btn-call btn-lg" onclick="trackCall('process')">
+        <button data-token="3bcc7813550e48a2b8075abcfa8fb0d7" data-orgname="Cooper-Electrical" class="hcp-button btn btn-primary btn-lg" onclick="HCPWidget.openModal(); trackBooking('process')">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></svg>
+          Book Online
+        </button>
+        <a href="tel:+17046090965" class="btn btn-call btn-lg" onclick="trackCall('process')" style="margin-left:12px">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-          Call Cole — (704) 609-0965
+          Call (704) 609-0965
         </a>
       </div>
     </div>
@@ -971,11 +981,15 @@
         </div>
       </div>
       <div class="final-cta-actions">
+        <button data-token="3bcc7813550e48a2b8075abcfa8fb0d7" data-orgname="Cooper-Electrical" class="hcp-button btn btn-primary btn-lg" onclick="HCPWidget.openModal(); trackBooking('final-cta')">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></svg>
+          Book Online
+        </button>
         <a href="tel:+17046090965" class="btn btn-call btn-lg" onclick="trackCall('final-cta')">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
           Call (704) 609-0965
         </a>
-        <a href="#quote" class="btn btn-ghost btn-lg" onclick="scrollToForm(event)">Request a Quote Online</a>
+        <a href="#quote" class="btn btn-ghost btn-lg" onclick="scrollToForm(event)">Get a Free Quote</a>
       </div>
     </div>
   </section>
