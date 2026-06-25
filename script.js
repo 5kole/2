@@ -62,11 +62,11 @@ function trackCall(location) {
 
 // ── CONVERSION 2: Form submission ────────────────────────────────────────────
 // Fires after the quote form is successfully submitted.
-// Replace AW-CONVERSION_ID/FORM_LABEL with your real Google Ads conversion label.
+// Replace AW-17992897776/sit7CImd18UcEPCp14ND with your real Google Ads conversion label.
 function fireFormConversion() {
   if (typeof gtag === 'undefined') return;
   gtag('event', 'conversion', {
-    send_to: 'AW-CONVERSION_ID/FORM_LABEL',
+    send_to: 'AW-17992897776/sit7CImd18UcEPCp14ND',
     event_callback: function() {}
   });
   // GA4 event for reporting
